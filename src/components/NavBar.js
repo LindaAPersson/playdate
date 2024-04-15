@@ -23,7 +23,7 @@ const NavBar = () => {
       };
 
     const adPostIcon = (
-        <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/posts/create"><i className="fa-solid fa-square-plus"></i>Add Playdate</NavLink>
+        <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/playdate/create"><i className="fa-solid fa-square-plus"></i>Add Playdate</NavLink>
     )
     const loggedInIcons = <>
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/playdate">Playdates <i className="fa-solid fa-children"></i></NavLink>
