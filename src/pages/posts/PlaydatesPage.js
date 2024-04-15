@@ -14,6 +14,8 @@ import { useLocation } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
+import InfiniteScroll from "react-infinite-scroll-component";
+import {fetchMoreData} from "../../utils/utils";
 
 function PlaydatesPage({ message = "" }) {
     const [playdates, setPlaydates] = useState({ results: [] });
@@ -64,9 +66,17 @@ function PlaydatesPage({ message = "" }) {
                 {hasLoaded ? (
                     <>
                         {playdates.results.length ? (
-                            playdates.results.map((playdates) => (
-                                <Playdate key={playdates.id} {...playdates} setPlaydates={setPlaydates} />
-                            ))
+                            <InfiniteScroll
+                                children={
+                                    playdates.results.map((playdates) => (
+                                        <Playdate key={playdates.id} {...playdates} setPlaydates={setPlaydates} />
+                                    ))
+                                }
+                                dataLength={playdates.results.length}
+                                loader={<Asset spinner />}
+                                hasMore={!!playdates.next}
+                                next={() => fetchMoreData(playdates, setPlaydates)}
+                            />
                         ) : (
                             <Container className={appStyles.Content}>
                                 <Asset src={NoResults} message={message} />
