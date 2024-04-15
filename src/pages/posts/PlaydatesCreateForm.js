@@ -86,9 +86,9 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.title?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
             ))}
             <Form.Group>
                 <Form.Label>Date</Form.Label>
@@ -100,9 +100,9 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.date?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
             ))}
             <Form.Group>
                 <Form.Label>Location</Form.Label>
@@ -114,9 +114,9 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.location?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
             ))}
             <Form.Group>
                 <Form.Label>Description</Form.Label>
@@ -129,9 +129,9 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.description?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
             ))}
             <Form.Group>
                 <Form.Label>Prize</Form.Label>
@@ -144,9 +144,9 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.prize?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
             ))}
             <Form.Group>
                 <Form.Label>Parent Stay Required</Form.Label>
@@ -158,9 +158,9 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.parentStayRequired?.map((message, idx) => (
-              <Alert key={idx} variant="warning">
-                {message}
-              </Alert>
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
             ))}
 
             <Button
@@ -216,6 +216,11 @@ function PlaydatesCreateForm() {
                                 ref={imageInput}
                             />
                         </Form.Group>
+                        {errors?.image?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
