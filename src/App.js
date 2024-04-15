@@ -9,7 +9,9 @@ import PlaydatesCreateForm from "./pages/posts/PlaydatesCreateForm";
 import PlaydatePage from "./pages/posts/PlaydatePage";
 import PlaydatesPage from "./pages/posts/PlaydatesPage";
 
+
 function App() {
+
   return (
     <div className={styles.App}>
       <NavBar />
@@ -20,7 +22,10 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/playdate/create" render={() => <PlaydatesCreateForm />} />
           <Route exact path="/playdate/:id" render={() => <PlaydatePage />} />
-          <Route exact path="/playdate" render={() => <PlaydatesPage message="No results found"/>} />
+          <Route exact path="/playdate" render={() => (<PlaydatesPage 
+            message="No results found"
+          />
+          )} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>
