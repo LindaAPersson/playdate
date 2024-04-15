@@ -7,6 +7,7 @@ import SignUpForm from "./pages/auth/SignUpForm";
 import SignInForm from "./pages/auth/SignInForm";
 import PlaydatesCreateForm from "./pages/posts/PlaydatesCreateForm";
 import PlaydatePage from "./pages/posts/PlaydatePage";
+import PlaydatesPage from "./pages/posts/PlaydatesPage";
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/playdate/create" render={() => <PlaydatesCreateForm />} />
           <Route exact path="/playdate/:id" render={() => <PlaydatePage />} />
+          <Route exact path="/playdate" render={() => <PlaydatesPage message="No results found"/>} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

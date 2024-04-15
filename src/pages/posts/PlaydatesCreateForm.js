@@ -65,7 +65,7 @@ function PlaydatesCreateForm() {
 
         try {
             const { data } = await axiosReq.post("/playdate/", formData);
-            history.push(`/playdates/${data.id}`);
+            history.push(`/playdate/${data.id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
