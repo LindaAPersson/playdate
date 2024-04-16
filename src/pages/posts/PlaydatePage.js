@@ -44,7 +44,7 @@ function PlaydatePage() {
         <Container className={appStyles.Content}> {currentUser ? (
           <CommentCreateForm
             user={currentUser.user}
-            playdate={id}
+            playdate_post={id}
             setPlaydate={setPlaydate}
             setComments={setComments}
           />
@@ -53,7 +53,7 @@ function PlaydatePage() {
         ) : null}
         {comments.results.length ? (
             comments.results.map((comment) => (
-              <Comment key={comment.id} {...comment} />
+              <Comment key={comment.id} {...comment} setPlaydate_post={setPlaydate} setComments={setComments}/>
             ))
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>
