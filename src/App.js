@@ -8,6 +8,7 @@ import SignInForm from "./pages/auth/SignInForm";
 import PlaydatesCreateForm from "./pages/posts/PlaydatesCreateForm";
 import PlaydatePage from "./pages/posts/PlaydatePage";
 import PlaydatesPage from "./pages/posts/PlaydatesPage";
+import PlaydatesEditForm from "./pages/posts/PlaydateEditForm";
 
 
 function App() {
@@ -26,6 +27,7 @@ function App() {
             message="No results found"
           />
           )} />
+          <Route exact path="/playdate/:id/edit" render={() => <PlaydatesEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>
       </Container>

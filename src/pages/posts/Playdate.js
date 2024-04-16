@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosRes } from "../../api/axiosDefaults";
 
 const Playdate = (props) => {
-    const { id, title, date, location, description, prize, parentStayRequired, image, organizer,
+    const { id, title, date, location, description, prize, parent_stay_required, image, organizer,
         comments_count,
         created_at,
         time, suitable_age,
@@ -25,10 +25,10 @@ const Playdate = (props) => {
 
     const handleDelete = async () => {
         try {
-          await axiosRes.delete(`/playdate/${id}/`);
-          history.goBack();
+            await axiosRes.delete(`/playdate/${id}/`);
+            history.goBack();
         } catch (err) {
-          console.log(err);
+            console.log(err);
         }
     };
 
@@ -46,7 +46,12 @@ const Playdate = (props) => {
                 {location && <Card.Text>Where: {location}</Card.Text>}
                 {prize && <Card.Text>Prize: {prize} SEK</Card.Text>}
                 {suitable_age && <Card.Text>Suitable age: {suitable_age}</Card.Text>}
-                {parentStayRequired && <Card.Text>Parent stay Required: {parentStayRequired}</Card.Text>}
+                {parent_stay_required !== null && (
+                    <Card.Text>
+                        Parent stay Required: {parent_stay_required ? "Yes" : "No"}
+                    </Card.Text>
+                )}
+
                 {organizer && <Card.Text>Organizer: {organizer}</Card.Text>}
                 <span>Created at: {created_at}</span>
                 {is_organizer && PlaydatePage && <MoreDropdown

@@ -7,17 +7,17 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
-import Upload from "../../assets/upload.png";
-
 import styles from "../../styles/PlaydatesCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import Asset from "../../components/Assets";
+
 import { Image } from "react-bootstrap";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";
 import { axiosReq } from "../../api/axiosDefaults";
+import { useParams } from "react-router-dom/cjs/react-router-dom";
+import { useEffect } from "react";
 
-function PlaydatesCreateForm() {
+function PlaydatesEditForm() {
     const [errors, setErrors] = useState({});
 
     const [postData, setPostData] = useState({
@@ -26,15 +26,32 @@ function PlaydatesCreateForm() {
         location: "",
         description: "",
         prize: "",
-        parentStayRequired: "",
+        parent_stay_required: "",
         image: "",
         time: "", 
         suitable_age: "",
     });
-    const { title, date, location, description, prize, parentStayRequired, image, time, suitable_age, } = postData;
+    const { title, date, location, description, prize, parent_stay_required, image, time, suitable_age, } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
+
+    const { id } = useParams();
+
+    useEffect(() => {
+      const handleMount = async () => {
+        try {
+          const { data } = await axiosReq.get(`/playdate/${id}/`);
+          const { title, date, location, description, prize, parentStayRequired, image, time, suitable_age, is_organizer } = data;
+  
+          is_organizer ? setPostData({ title, date, location, description, prize, parentStayRequired, image, time, suitable_age }) : history.push("/");
+        } catch (err) {
+          console.log(err);
+        }
+      };
+  
+      handleMount();
+    }, [history, id]);
 
     const handleChange = (event) => {
         setPostData({
@@ -53,6 +70,16 @@ function PlaydatesCreateForm() {
         }
     };
 
+    const handleChangeCheckbox = (event) => {
+        const { name, checked } = event.target;
+        setPostData({
+            ...postData,
+            [name]: checked, // Use `checked` directly for checkbox inputs
+        });
+    };
+
+
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -64,12 +91,15 @@ function PlaydatesCreateForm() {
         formData.append("description", description);
         formData.append("prize", prize);
         formData.append("suitable_age", suitable_age);
-        formData.append("parentStayRequired", parentStayRequired);
-        formData.append("image", imageInput.current.files[0]);
+        formData.append("parent_stay_required", parent_stay_required);
+
+        if (imageInput?.current?.files[0]) {
+            formData.append("image", imageInput.current.files[0]);
+          }
 
         try {
-            const { data } = await axiosReq.post("/playdate/", formData);
-            history.push(`/playdate/${data.id}`);
+            await axiosReq.put(`/playdate/${id}`, formData);
+            history.push(`/playdate/${id}`);
         } catch (err) {
             console.log(err);
             if (err.response?.status !== 401) {
@@ -191,12 +221,12 @@ function PlaydatesCreateForm() {
                 <Form.Label>Parent Stay Required</Form.Label>
                 <Form.Control
                     type="checkbox"
-                    name="parentStayRequired"
-                    checked={parentStayRequired}
-                    onChange={handleChange}
+                    name="parent_stay_required"
+                    checked={parent_stay_required}
+                    onChange={handleChangeCheckbox}
                 />
             </Form.Group>
-            {errors.parentStayRequired?.map((message, idx) => (
+            {errors.parent_stay_required?.map((message, idx) => (
                 <Alert key={idx} variant="warning">
                     {message}
                 </Alert>
@@ -209,7 +239,7 @@ function PlaydatesCreateForm() {
                 cancel
             </Button>
             <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-                create
+                Change
             </Button>
         </div>
     );
@@ -222,8 +252,7 @@ function PlaydatesCreateForm() {
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
-                            {image ? (
-                                <>
+                            
                                     <figure>
                                         <Image className={appStyles.Image} src={image} rounded />
                                     </figure>
@@ -235,18 +264,7 @@ function PlaydatesCreateForm() {
                                             Change the image
                                         </Form.Label>
                                     </div>
-                                </>
-                            ) : (
-                                <Form.Label
-                                    className="d-flex justify-content-center"
-                                    htmlFor="image-upload"
-                                >
-                                    <Asset
-                                        src={Upload}
-                                        message="Click or tap to upload an image"
-                                    />
-                                </Form.Label>
-                            )}
+                                
 
                             <Form.File
                                 id="image-upload"
@@ -271,4 +289,4 @@ function PlaydatesCreateForm() {
     );
 }
 
-export default PlaydatesCreateForm;
+export default PlaydatesEditForm;
