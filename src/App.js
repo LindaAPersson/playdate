@@ -9,6 +9,7 @@ import PlaydatesCreateForm from "./pages/posts/PlaydatesCreateForm";
 import PlaydatePage from "./pages/posts/PlaydatePage";
 import PlaydatesPage from "./pages/posts/PlaydatesPage";
 import PlaydatesEditForm from "./pages/posts/PlaydateEditForm";
+import ContactForm from "./pages/cotact/contact";
 
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
           <Route exact path="/" render={() => <h1>Home page</h1>} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
+          <Route exact path="/contact" render={() => <ContactForm />} />
           <Route exact path="/playdate/create" render={() => <PlaydatesCreateForm />} />
           <Route exact path="/playdate/:id" render={() => <PlaydatePage />} />
           <Route exact path="/playdate" render={() => (<PlaydatesPage 
