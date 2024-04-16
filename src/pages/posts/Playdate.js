@@ -11,6 +11,7 @@ const Playdate = (props) => {
     const { id, title, date, location, description, prize, parentStayRequired, image, organizer,
         comments_count,
         created_at,
+        time, suitable_age,
         PlaydatePage,
     } = props;
 
@@ -38,14 +39,13 @@ const Playdate = (props) => {
                 <Card.Img src={image} alt={title} />
             </Link>
             <Card.Body>
-                
-                
-
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
                 {description && <Card.Text>Description: {description}</Card.Text>}
                 {date && <Card.Text>Date: {date}</Card.Text>}
+                {time && <Card.Text>Time: {time}</Card.Text>}
                 {location && <Card.Text>Where: {location}</Card.Text>}
                 {prize && <Card.Text>Prize: {prize} SEK</Card.Text>}
+                {suitable_age && <Card.Text>Suitable age: {suitable_age}</Card.Text>}
                 {parentStayRequired && <Card.Text>Parent stay Required: {parentStayRequired}</Card.Text>}
                 {organizer && <Card.Text>Organizer: {organizer}</Card.Text>}
                 <span>Created at: {created_at}</span>

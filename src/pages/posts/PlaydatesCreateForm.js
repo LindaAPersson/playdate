@@ -28,8 +28,10 @@ function PlaydatesCreateForm() {
         prize: "",
         parentStayRequired: "",
         image: "",
+        time: "", 
+        suitable_age: "",
     });
-    const { title, date, location, description, prize, parentStayRequired, image } = postData;
+    const { title, date, location, description, prize, parentStayRequired, image, time, suitable_age, } = postData;
 
     const imageInput = useRef(null);
     const history = useHistory();
@@ -54,12 +56,14 @@ function PlaydatesCreateForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-
+   
         formData.append("title", title);
         formData.append("date", date);
+        formData.append("time", time);
         formData.append("location", location);
         formData.append("description", description);
         formData.append("prize", prize);
+        formData.append("suitable_age", suitable_age);
         formData.append("parentStayRequired", parentStayRequired);
         formData.append("image", imageInput.current.files[0]);
 
@@ -105,6 +109,20 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
+                <Form.Label>Time</Form.Label>
+                <Form.Control
+                    type="time"
+                    name="time"
+                    value={time}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.time?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group>
                 <Form.Label>Location</Form.Label>
                 <Form.Control
                     type="text"
@@ -144,6 +162,27 @@ function PlaydatesCreateForm() {
                 />
             </Form.Group>
             {errors.prize?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group>
+                <Form.Label>Suitable Age</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="suitable_age"
+                    value={suitable_age}
+                    onChange={handleChange}
+                    >
+                    <option value="all">All Ages</option>
+                    <option value="infant">Infant (0-2 years)</option>
+                    <option value="toddler">Toddler (2-5 years)</option>
+                    <option value="child">Child (5-12 years)</option>
+                    <option value="teenager">Teenager (13-18 years)</option>
+                    
+                </Form.Control>
+            </Form.Group>
+            {errors.suitable_age?.map((message, idx) => (
                 <Alert key={idx} variant="warning">
                     {message}
                 </Alert>
