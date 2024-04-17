@@ -8,7 +8,7 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
 import Upload from "../../assets/upload.png";
-
+import default_posts from "../../assets/default_posts.jpg"
 import styles from "../../styles/PlaydatesCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -28,11 +28,11 @@ function PlaydatesCreateForm() {
         prize: "",
         parentStayRequired: "",
         image: "",
-        time: "", 
+        time: "",
         suitable_age: "",
     });
     const { title, date, location, description, prize, parentStayRequired, image, time, suitable_age, } = postData;
-
+    const defaultImageUrl = 'https://res.cloudinary.com/dnjxdpdic/image/upload/v1712823894/media/images/default_posts_iajkjc.jpg'
     const imageInput = useRef(null);
     const history = useHistory();
 
@@ -50,13 +50,13 @@ function PlaydatesCreateForm() {
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
             });
-        }
+        } 
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-   
+
         formData.append("title", title);
         formData.append("date", date);
         formData.append("time", time);
@@ -65,8 +65,8 @@ function PlaydatesCreateForm() {
         formData.append("prize", prize);
         formData.append("suitable_age", suitable_age);
         formData.append("parentStayRequired", parentStayRequired);
-        formData.append("image", imageInput.current.files[0]);
-
+        formData.append("image", imageInput.current.files[0] || defaultImageUrl);
+        
         try {
             const { data } = await axiosReq.post("/playdate/", formData);
             history.push(`/playdate/${data.id}`);
@@ -173,13 +173,13 @@ function PlaydatesCreateForm() {
                     name="suitable_age"
                     value={suitable_age}
                     onChange={handleChange}
-                    >
+                >
                     <option value="all">All Ages</option>
                     <option value="infant">Infant (0-2 years)</option>
                     <option value="toddler">Toddler (2-5 years)</option>
                     <option value="child">Child (5-12 years)</option>
                     <option value="teenager">Teenager (13-18 years)</option>
-                    
+
                 </Form.Control>
             </Form.Group>
             {errors.suitable_age?.map((message, idx) => (
@@ -236,30 +236,33 @@ function PlaydatesCreateForm() {
                                         </Form.Label>
                                     </div>
                                 </>
-                            ) : (
-                                <Form.Label
-                                    className="d-flex justify-content-center"
-                                    htmlFor="image-upload"
-                                >
-                                    <Asset
-                                        src={Upload}
-                                        message="Click or tap to upload an image"
-                                    />
-                                </Form.Label>
+                            ) : (                                
+                                    <Form.Label
+                                        className="d-flex justify-content-center"
+                                        htmlFor="image-upload"
+                                    >              
+                                        <Asset
+                                            src={Upload}
+                                            message="Click or tap to upload an image"
+                                        />
+                                        
+                                    </Form.Label>
+                                    
                             )}
 
-                            <Form.File
-                                id="image-upload"
-                                accept="image/*"
-                                onChange={handleChangeImage}
-                                ref={imageInput}
-                            />
-                        </Form.Group>
-                        {errors?.image?.map((message, idx) => (
-                            <Alert variant="warning" key={idx}>
-                                {message}
-                            </Alert>
-                        ))}
+                                    <Form.File
+                                        id="image-upload"
+                                        accept="image/*"
+                                        onChange={handleChangeImage}
+                                        ref={imageInput}
+                                    />
+                                </Form.Group>
+                            {errors?.image?.map((message, idx) => (
+                                <Alert variant="warning" key={idx}>
+                                    {message}
+                                </Alert>
+                            ))}
+                        
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>

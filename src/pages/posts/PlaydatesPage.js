@@ -21,10 +21,7 @@ function PlaydatesPage({ message, filter = "" }) {
     const [playdates, setPlaydates] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
-
-
     const [query, setQuery] = useState("");
-    console.log('filter = ', filter);
 
     useEffect(() => {
         const fetchPlaydate = async () => {

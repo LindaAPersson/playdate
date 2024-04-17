@@ -13,8 +13,6 @@ const Playdate = (props) => {
         comments_count,
         created_at,
         time, suitable_age,
-        PlaydatePage,
-        PlaydatesPage
     } = props;
 
     const currentUser = useCurrentUser();
