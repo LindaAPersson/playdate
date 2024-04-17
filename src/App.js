@@ -10,25 +10,34 @@ import PlaydatePage from "./pages/posts/PlaydatePage";
 import PlaydatesPage from "./pages/posts/PlaydatesPage";
 import PlaydatesEditForm from "./pages/posts/PlaydateEditForm";
 import ContactForm from "./pages/cotact/contact";
+import { useCurrentUser } from "./contexts/CurrentUserContext";
+import Playdate from "./pages/posts/Playdate";
 
 
 function App() {
+  const currentUser = useCurrentUser();
+
+  console.log(currentUser);
 
   return (
     <div className={styles.App}>
       <NavBar />
       <Container className={styles.Main}>
         <Switch>
-          <Route exact path="/" render={() => <h1>Home page</h1>} />
+          <Route exact path="/" render={() => (<PlaydatesPage 
+            message="No results found"
+          />
+          )} />
+          <Route exact path="/myplaydate" render={() => (<PlaydatesPage 
+            message="No results found, create a playdate"
+            filter={`organizer=${currentUser?.pk}&`}
+          />
+          )} />
           <Route exact path="/signin" render={() => <SignInForm />} />
           <Route exact path="/signup" render={() => <SignUpForm />} />
           <Route exact path="/contact" render={() => <ContactForm />} />
           <Route exact path="/playdate/create" render={() => <PlaydatesCreateForm />} />
           <Route exact path="/playdate/:id" render={() => <PlaydatePage />} />
-          <Route exact path="/playdate" render={() => (<PlaydatesPage 
-            message="No results found"
-          />
-          )} />
           <Route exact path="/playdate/:id/edit" render={() => <PlaydatesEditForm />} />
           <Route render={() => <p>Page not found!</p>} />
         </Switch>

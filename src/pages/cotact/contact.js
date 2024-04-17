@@ -29,7 +29,7 @@ function ContactForm() {
 
     const [errors, setErrors] = useState({});
 
-    const history = useHistory;
+    const history = useHistory();
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {

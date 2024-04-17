@@ -17,17 +17,18 @@ import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
 import {fetchMoreData} from "../../utils/utils";
 
-function PlaydatesPage({ message = "" }) {
+function PlaydatesPage({ message, filter = "" }) {
     const [playdates, setPlaydates] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
     const [query, setQuery] = useState("");
+    console.log('filter = ', filter);
 
     useEffect(() => {
         const fetchPlaydate = async () => {
             try {
-                const { data } = await axiosReq.get(`/playdate/?search=${query}`);
+                const { data } = await axiosReq.get(`/playdate/?${filter}search=${query}`);
                 setPlaydates(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -43,7 +44,7 @@ function PlaydatesPage({ message = "" }) {
         return () => {
             clearTimeout(timer);
         };
-    }, [query, pathname]);
+    }, [filter, query, pathname]);
 
     return (
         <Row className="h-100">

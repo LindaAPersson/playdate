@@ -26,7 +26,7 @@ const NavBar = () => {
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/playdate/create"><i className="fa-solid fa-square-plus"></i>Add Playdate</NavLink>
     )
     const loggedInIcons = <>
-        <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/playdate">Playdates <i className="fa-solid fa-children"></i></NavLink>
+        <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/myplaydate">My Playdates <i className="fa-solid fa-child-reaching"></i></NavLink>
         <NavLink className={styles.NavLink} 
             to="/" 
             onClick ={handleSignOut}
@@ -51,7 +51,7 @@ const NavBar = () => {
                 <Navbar.Toggle ref={ref} onClick={() => setExpanded(!expanded)} aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="ml-auto text-left">
-                    <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Home <i className="fa-brands fa-fort-awesome"></i></NavLink>
+                    <NavLink exact className={styles.NavLink} activeClassName={styles.Active} to="/">Playdates <i className="fa-solid fa-children"></i></NavLink>
                         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/contact">Contact <i className="fa-regular fa-pen-to-square"></i></NavLink>
                         {currentUser ? loggedInIcons : loggedOutIcons}
                     </Nav>

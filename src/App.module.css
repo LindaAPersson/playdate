@@ -7,6 +7,24 @@
   .Main {
     padding-top: 81px;
   }
+  .Content {
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 2px;
+    border: 1px solid #dadadf;
+  }
+  
+  .FillerImage {
+    object-fit: cover;
+    height: 100%;
+    width: 100%;
+  }
+  
+  .Image {
+    max-height: 20vh;
+    max-width: 100%;
+    object-fit: cover;
+  }
 
   * {
     box-sizing: border-box;
