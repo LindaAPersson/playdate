@@ -22,6 +22,7 @@ function PlaydatesPage({ message, filter = "" }) {
     const [hasLoaded, setHasLoaded] = useState(false);
     const { pathname } = useLocation();
 
+
     const [query, setQuery] = useState("");
     console.log('filter = ', filter);
 
@@ -89,6 +90,7 @@ function PlaydatesPage({ message, filter = "" }) {
                         <Asset spinner />
                     </Container>
                 )}
+                
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                 <p>Popular profiles for desktop</p>

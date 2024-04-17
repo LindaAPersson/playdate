@@ -1,9 +1,15 @@
+body{
+   
+}
 .App {
     font-family: "DM Sans", sans-serif;
     background-color: #f8f8f8;
     min-height: 100vh;
+    background-image: url('https://res.cloudinary.com/dnjxdpdic/image/upload/v1713355023/background_e93knd.png');
+    
+    background-position: center;
   }
-  
+
   .Main {
     padding-top: 81px;
   }

@@ -14,6 +14,7 @@ const Playdate = (props) => {
         created_at,
         time, suitable_age,
         PlaydatePage,
+        PlaydatesPage
     } = props;
 
     const currentUser = useCurrentUser();
@@ -41,25 +42,28 @@ const Playdate = (props) => {
             </Link>
             <Card.Body>
                 {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {description && <Card.Text className={styles.Content}>Description: {description}</Card.Text>}
-                {date && <Card.Text className={styles.Content}>Date: {date}</Card.Text>}
-                {time && <Card.Text className={styles.Content}>Time: {time}</Card.Text>}
-                {location && <Card.Text className={styles.Content}>Where: {location}</Card.Text>}
-                {prize && <Card.Text className={styles.Content}>Prize: {prize} SEK</Card.Text>}
-                {suitable_age && <Card.Text className={styles.Content}>Suitable age: {suitable_age}</Card.Text>}
+                {description && <Card.Text>Description: {description}</Card.Text>}
+                {date && <Card.Text>Date: {date}</Card.Text>}
+                {time && <Card.Text>Time: {time}</Card.Text>}
+                {location && <Card.Text>Where: {location}</Card.Text>}
+                {prize && <Card.Text>Prize: {prize} SEK</Card.Text>}
+                {suitable_age && <Card.Text>Suitable age: {suitable_age}</Card.Text>}
                 {parent_stay_required !== null && (
-                    <Card.Text className={styles.Content}>
+                    <Card.Text>
                         Parent stay Required: {parent_stay_required ? "Yes" : "No"}
                     </Card.Text>
                 )}
 
-                {organizer && <Card.Text className={styles.Content}>Organizer: {organizer}
-                Created at: {created_at}
-                {is_organizer && PlaydatePage && <MoreDropdown
-                    handleEdit={handleEdit}
-                    handleDelete={handleDelete}
-                />}
-                </Card.Text>}
+                {organizer && <Card.Text>Organizer: {organizer}
+                Created at: {created_at}</Card.Text>}
+
+                {is_organizer &&  (
+                    <MoreDropdown
+                        handleEdit={handleEdit}
+                        handleDelete={handleDelete}
+                    />
+                )}
+                
                 <div className={styles.PostBar}>
                     <Link to={`/playdate/${id}`}>
                         <i className="far fa-comments" />
