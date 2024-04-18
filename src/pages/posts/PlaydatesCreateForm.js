@@ -8,7 +8,6 @@ import Container from "react-bootstrap/Container";
 import Alert from "react-bootstrap/Alert";
 
 import Upload from "../../assets/upload.png";
-import default_posts from "../../assets/default_posts.jpg"
 import styles from "../../styles/PlaydatesCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
@@ -19,7 +18,7 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PlaydatesCreateForm() {
     const [errors, setErrors] = useState({});
-
+    console.log('hej')
     const [postData, setPostData] = useState({
         title: "",
         date: "",
@@ -35,22 +34,36 @@ function PlaydatesCreateForm() {
     const defaultImageUrl = 'https://res.cloudinary.com/dnjxdpdic/image/upload/v1712823894/media/images/default_posts_iajkjc.jpg'
     const imageInput = useRef(null);
     const history = useHistory();
-
+    const [selectedDefaultImage, setSelectedDefaultImage] = useState("");
+    
     const handleChange = (event) => {
         setPostData({
             ...postData,
             [event.target.name]: event.target.value,
         });
     };
+    const handleDefaultImageChange = (event) => {
+        fetch(defaultImageUrl)
+            .then((res) => res.blob())
+            .then((myBlob) => {
+                const myFile = new File([myBlob], 'default_image.jpg', { type: myBlob.type });
+                setSelectedDefaultImage(myFile);
+        })
+        .catch((error) => {
+            console.error('Error fetching default image:', error);
+        });
+    }
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
+            console.log("bild:", image)
             setPostData({
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
+
             });
-        } 
+        }
     };
 
     const handleSubmit = async (event) => {
@@ -65,8 +78,8 @@ function PlaydatesCreateForm() {
         formData.append("prize", prize);
         formData.append("suitable_age", suitable_age);
         formData.append("parentStayRequired", parentStayRequired);
-        formData.append("image", imageInput.current.files[0] || defaultImageUrl);
-        
+        formData.append("image", imageInput.current.files[0] || selectedDefaultImage);
+
         try {
             const { data } = await axiosReq.post("/playdate/", formData);
             history.push(`/playdate/${data.id}`);
@@ -174,6 +187,7 @@ function PlaydatesCreateForm() {
                     value={suitable_age}
                     onChange={handleChange}
                 >
+                    <option value="">Select Age</option>
                     <option value="all">All Ages</option>
                     <option value="infant">Infant (0-2 years)</option>
                     <option value="toddler">Toddler (2-5 years)</option>
@@ -212,6 +226,7 @@ function PlaydatesCreateForm() {
                 create
             </Button>
         </div>
+    
     );
 
     return (
@@ -222,7 +237,9 @@ function PlaydatesCreateForm() {
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
-                            {image ? (
+                            
+
+                        {image ? (
                                 <>
                                     <figure>
                                         <Image className={appStyles.Image} src={image} rounded />
@@ -236,33 +253,42 @@ function PlaydatesCreateForm() {
                                         </Form.Label>
                                     </div>
                                 </>
-                            ) : (                                
-                                    <Form.Label
+                            ) : (
+                                <Form.Label
                                         className="d-flex justify-content-center"
                                         htmlFor="image-upload"
-                                    >              
+                                    >
                                         <Asset
                                             src={Upload}
                                             message="Click or tap to upload an image"
                                         />
-                                        
                                     </Form.Label>
                                     
+                                
                             )}
-
-                                    <Form.File
-                                        id="image-upload"
-                                        accept="image/*"
-                                        onChange={handleChangeImage}
-                                        ref={imageInput}
-                                    />
+                                <Form.Group>
+                                    <Form.Label>Select Default Image</Form.Label>
+                                    <Form.Control
+                                        type="checkbox"
+                                        value={selectedDefaultImage}
+                                        onChange={handleDefaultImageChange}
+                                    >
+                                    </Form.Control>
                                 </Form.Group>
-                            {errors?.image?.map((message, idx) => (
-                                <Alert variant="warning" key={idx}>
-                                    {message}
-                                </Alert>
-                            ))}
-                        
+
+                            < Form.File
+                            id="image-upload"
+                            accept="image/*"
+                            onChange={handleChangeImage}
+                            ref={imageInput}
+                            />
+                        </Form.Group>
+                        {errors?.image?.map((message, idx) => (
+                            <Alert variant="warning" key={idx}>
+                                {message}
+                            </Alert>
+                        ))}
+
                         <div className="d-md-none">{textFields}</div>
                     </Container>
                 </Col>
