@@ -51,17 +51,16 @@ const Playdate = (props) => {
                         Parent stay Required: {parent_stay_required ? "Yes" : "No"}
                     </Card.Text>
                 )}
-
-                {organizer && <Card.Text>Organizer: {organizer}
-                Created at: {created_at}</Card.Text>}
-
+                {organizer && <Card.Text>Organizer: {organizer}</Card.Text>}
+                <div className={`text-left ${styles.createdAt}`}>
+                Created at: {created_at}
                 {is_organizer &&  (
                     <MoreDropdown
                         handleEdit={handleEdit}
                         handleDelete={handleDelete}
                     />
                 )}
-                
+                </div>
                 <div className={styles.PostBar}>
                     <Link to={`/playdate/${id}`}>
                         <i className="far fa-comments" />

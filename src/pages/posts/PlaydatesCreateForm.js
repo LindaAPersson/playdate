@@ -266,8 +266,9 @@ function PlaydatesCreateForm() {
                                     
                                 
                             )}
-                                <Form.Group>
-                                    <Form.Label>Select Default Image</Form.Label>
+                                <Form.Group className={`${styles.defultImg} text-left`}>
+                                <Form.Label className="text-left">Select Default Image:</Form.Label>
+                                
                                     <Form.Control
                                         type="checkbox"
                                         value={selectedDefaultImage}

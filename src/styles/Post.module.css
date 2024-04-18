@@ -16,3 +16,7 @@
   margin: 2px;
   padding: 5px;
 }
+
+.createdAt {
+  font-size: small;
+}
