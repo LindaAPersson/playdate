@@ -39,19 +39,19 @@ const Playdate = (props) => {
                 <Card.Img className={appStyles.Image} src={image} alt={title} />
             </Link>
             <Card.Body>
-                {title && <Card.Title className="text-center">{title}</Card.Title>}
-                {description && <Card.Text>Description: {description}</Card.Text>}
-                {date && <Card.Text>Date: {date}</Card.Text>}
-                {time && <Card.Text>Time: {time}</Card.Text>}
-                {location && <Card.Text>Where: {location}</Card.Text>}
-                {prize && <Card.Text>Prize: {prize} SEK</Card.Text>}
-                {suitable_age && <Card.Text>Suitable age: {suitable_age}</Card.Text>}
+                {title && <Card.Title className={`text-center ${styles.bold}`}>{title}</Card.Title>}
+                {description && <Card.Text><span className={styles.bold}>Description: </span>{description}</Card.Text>}
+                {date && <Card.Text><span className={styles.bold}>Date: </span>{date}</Card.Text>}
+                {time && <Card.Text><span className={styles.bold}>Time: </span>{time}</Card.Text>}
+                {location && <Card.Text><span className={styles.bold}>Where: </span>{location}</Card.Text>}
+                {prize && <Card.Text><span className={styles.bold}>Prize: </span>{prize} SEK</Card.Text>}
+                {suitable_age && <Card.Text><span className={styles.bold}>Suitable age: </span>{suitable_age}</Card.Text>}
                 {parent_stay_required !== null && (
-                    <Card.Text>
-                        Parent stay Required: {parent_stay_required ? "Yes" : "No"}
+                    <Card.Text><span className={styles.bold}>
+                        Parent stay Required: </span>{parent_stay_required ? "Yes" : "No"}
                     </Card.Text>
                 )}
-                {organizer && <Card.Text>Organizer: {organizer}</Card.Text>}
+                {organizer && <Card.Text><span className={styles.bold}>Organizer: </span>{organizer}</Card.Text>}
                 <div className={`text-left ${styles.createdAt}`}>
                 Created at: {created_at}
                 {is_organizer &&  (

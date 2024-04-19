@@ -20,3 +20,7 @@
 .createdAt {
   font-size: small;
 }
+
+.bold {
+  font-weight: 800;
+}

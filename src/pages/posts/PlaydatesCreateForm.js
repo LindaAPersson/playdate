@@ -18,7 +18,6 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 function PlaydatesCreateForm() {
     const [errors, setErrors] = useState({});
-    console.log('hej')
     const [postData, setPostData] = useState({
         title: "",
         date: "",
