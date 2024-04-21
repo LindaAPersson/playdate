@@ -24,12 +24,12 @@ function PlaydatesCreateForm() {
         location: "",
         description: "",
         prize: "",
-        parentStayRequired: "",
+        parent_stay_required: "",
         image: "",
         time: "",
         suitable_age: "",
     });
-    const { title, date, location, description, prize, parentStayRequired, image, time, suitable_age, } = postData;
+    const { title, date, location, description, prize, parent_stay_required, image, time, suitable_age, } = postData;
     const defaultImageUrl = 'https://res.cloudinary.com/dnjxdpdic/image/upload/v1712823894/media/images/default_posts_iajkjc.jpg'
     const imageInput = useRef(null);
     const history = useHistory();
@@ -76,7 +76,7 @@ function PlaydatesCreateForm() {
         formData.append("description", description);
         formData.append("prize", prize);
         formData.append("suitable_age", suitable_age);
-        formData.append("parentStayRequired", parentStayRequired);
+        formData.append("parent_stay_required", parent_stay_required);
         formData.append("image", imageInput.current.files[0] || selectedDefaultImage);
 
         try {
@@ -204,12 +204,12 @@ function PlaydatesCreateForm() {
                 <Form.Label>Parent Stay Required</Form.Label>
                 <Form.Control
                     type="checkbox"
-                    name="parentStayRequired"
-                    checked={parentStayRequired}
+                    name="parent_stay_required"
+                    checked={parent_stay_required}
                     onChange={handleChange}
                 />
             </Form.Group>
-            {errors.parentStayRequired?.map((message, idx) => (
+            {errors.parent_stay_required?.map((message, idx) => (
                 <Alert key={idx} variant="warning">
                     {message}
                 </Alert>

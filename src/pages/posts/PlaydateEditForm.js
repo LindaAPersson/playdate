@@ -42,9 +42,9 @@ function PlaydatesEditForm() {
       const handleMount = async () => {
         try {
           const { data } = await axiosReq.get(`/playdate/${id}/`);
-          const { title, date, location, description, prize, parentStayRequired, image, time, suitable_age, is_organizer } = data;
+          const { title, date, location, description, prize, parent_stay_required, image, time, suitable_age, is_organizer } = data;
   
-          is_organizer ? setPostData({ title, date, location, description, prize, parentStayRequired, image, time, suitable_age }) : history.push("/");
+          is_organizer ? setPostData({ title, date, location, description, prize, parent_stay_required, image, time, suitable_age }) : history.push("/");
         } catch (err) {
           console.log(err);
         }
