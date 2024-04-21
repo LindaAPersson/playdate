@@ -44,7 +44,7 @@ const Playdate = (props) => {
                 {date && <Card.Text><span className={styles.bold}>Date: </span>{date}</Card.Text>}
                 {time && <Card.Text><span className={styles.bold}>Time: </span>{time}</Card.Text>}
                 {location && <Card.Text><span className={styles.bold}>Where: </span>{location}</Card.Text>}
-                {prize && <Card.Text><span className={styles.bold}>Prize: </span>{prize} SEK</Card.Text>}
+                {prize && <Card.Text><span className={styles.bold}>Price: </span>{prize} SEK</Card.Text>}
                 {suitable_age && <Card.Text><span className={styles.bold}>Suitable age: </span>{suitable_age}</Card.Text>}
                 {parent_stay_required !== null && (
                     <Card.Text><span className={styles.bold}>
