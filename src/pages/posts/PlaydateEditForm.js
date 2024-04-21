@@ -32,11 +32,11 @@ function PlaydatesEditForm() {
         suitable_age: "",
     });
     const { title, date, location, description, prize, parent_stay_required, image, time, suitable_age, } = postData;
-
+    const defaultImageUrl = 'https://res.cloudinary.com/dnjxdpdic/image/upload/v1712823894/media/images/default_posts_iajkjc.jpg'
     const imageInput = useRef(null);
     const history = useHistory();
-
     const { id } = useParams();
+    const [selectedDefaultImage, setSelectedDefaultImage] = useState("");
 
     useEffect(() => {
       const handleMount = async () => {
@@ -59,6 +59,18 @@ function PlaydatesEditForm() {
             [event.target.name]: event.target.value,
         });
     };
+
+    const handleDefaultImageChange = (event) => {
+        fetch(defaultImageUrl)
+            .then((res) => res.blob())
+            .then((myBlob) => {
+                const myFile = new File([myBlob], 'default_image.jpg', { type: myBlob.type });
+                setSelectedDefaultImage(myFile);
+        })
+        .catch((error) => {
+            console.error('Error fetching default image:', error);
+        });
+    }
 
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
@@ -182,7 +194,7 @@ function PlaydatesEditForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Prize</Form.Label>
+                <Form.Label>Price</Form.Label>
                 <Form.Control
                     type="number"
                     name="prize"
@@ -264,7 +276,16 @@ function PlaydatesEditForm() {
                                             Change the image
                                         </Form.Label>
                                     </div>
+                                    <Form.Group className={`${styles.defultImg} text-left`}>
+                                <Form.Label className="text-left">Select Default Image:</Form.Label>
                                 
+                                    <Form.Control
+                                        type="checkbox"
+                                        value={selectedDefaultImage}
+                                        onChange={handleDefaultImageChange}
+                                    >
+                                    </Form.Control>
+                                </Form.Group>
 
                             <Form.File
                                 id="image-upload"

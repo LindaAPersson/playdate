@@ -164,7 +164,7 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Prize</Form.Label>
+                <Form.Label>Price</Form.Label>
                 <Form.Control
                     type="number"
                     name="prize"
