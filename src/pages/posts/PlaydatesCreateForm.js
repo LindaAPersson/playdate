@@ -34,7 +34,7 @@ function PlaydatesCreateForm() {
     const imageInput = useRef(null);
     const history = useHistory();
     const [selectedDefaultImage, setSelectedDefaultImage] = useState("");
-    
+
     const handleChange = (event) => {
         setPostData({
             ...postData,
@@ -47,10 +47,10 @@ function PlaydatesCreateForm() {
             .then((myBlob) => {
                 const myFile = new File([myBlob], 'default_image.jpg', { type: myBlob.type });
                 setSelectedDefaultImage(myFile);
-        })
-        .catch((error) => {
-            console.error('Error fetching default image:', error);
-        });
+            })
+            .catch((error) => {
+                console.error('Error fetching default image:', error);
+            });
     }
 
     const handleChangeImage = (event) => {
@@ -93,10 +93,11 @@ function PlaydatesCreateForm() {
     const textFields = (
         <div className="text-center">
             <Form.Group>
-                <Form.Label>Title</Form.Label>
+                <Form.Label htmlFor="Title">Title</Form.Label>
                 <Form.Control
                     type="text"
-                    name="title"
+                    id="Title"
+                    name="Title"
                     value={title}
                     onChange={handleChange}
                 />
@@ -107,9 +108,10 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Date</Form.Label>
+                <Form.Label htmlFor="date">Date</Form.Label>
                 <Form.Control
                     type="date"
+                    id="date"
                     name="date"
                     value={date}
                     onChange={handleChange}
@@ -121,9 +123,10 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Time</Form.Label>
+                <Form.Label htmlFor="time">Time</Form.Label>
                 <Form.Control
                     type="time"
+                    id="time"
                     name="time"
                     value={time}
                     onChange={handleChange}
@@ -135,7 +138,7 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Location</Form.Label>
+                <Form.Label htmlFor='location'>Location</Form.Label>
                 <Form.Control
                     type="text"
                     name="location"
@@ -149,7 +152,7 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Description</Form.Label>
+                <Form.Label htmlFor="description">Description</Form.Label>
                 <Form.Control
                     as="textarea"
                     rows={6}
@@ -164,7 +167,7 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Price</Form.Label>
+                <Form.Label htmlFor="prize">Price</Form.Label>
                 <Form.Control
                     type="number"
                     name="prize"
@@ -179,7 +182,7 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Suitable Age</Form.Label>
+                <Form.Label htmlFor="suitable_age">Suitable Age</Form.Label>
                 <Form.Control
                     as="select"
                     name="suitable_age"
@@ -201,7 +204,7 @@ function PlaydatesCreateForm() {
                 </Alert>
             ))}
             <Form.Group>
-                <Form.Label>Parent Stay Required</Form.Label>
+                <Form.Label htmlFor="parent_stay_required">Parent Stay Required</Form.Label>
                 <Form.Control
                     type="checkbox"
                     name="parent_stay_required"
@@ -225,7 +228,7 @@ function PlaydatesCreateForm() {
                 create
             </Button>
         </div>
-    
+
     );
 
     return (
@@ -236,9 +239,9 @@ function PlaydatesCreateForm() {
                         className={`${appStyles.Content} ${styles.Container} d-flex flex-column justify-content-center`}
                     >
                         <Form.Group className="text-center">
-                            
 
-                        {image ? (
+
+                            {image ? (
                                 <>
                                     <figure>
                                         <Image className={appStyles.Image} src={image} rounded />
@@ -254,33 +257,34 @@ function PlaydatesCreateForm() {
                                 </>
                             ) : (
                                 <Form.Label
-                                        className="d-flex justify-content-center"
-                                        htmlFor="image-upload"
-                                    >
-                                        <Asset
-                                            src={Upload}
-                                            message="Click or tap to upload an image"
-                                        />
-                                    </Form.Label>
-                                    
-                                
+                                    className="d-flex justify-content-center"
+                                    htmlFor="image-upload"
+                                >
+                                    <Asset
+                                        src={Upload}
+                                        message="Click or tap to upload an image"
+                                    />
+                                </Form.Label>
+
+
                             )}
-                                <Form.Group className={`${styles.defultImg} text-left`}>
-                                <Form.Label className="text-left">Select Default Image:</Form.Label>
-                                
-                                    <Form.Control
-                                        type="checkbox"
-                                        value={selectedDefaultImage}
-                                        onChange={handleDefaultImageChange}
-                                    >
-                                    </Form.Control>
-                                </Form.Group>
+                            <Form.Group className={`${styles.defultImg} text-left`}>
+                                <Form.Label className="text-left" htmlFor='DefaultImage'>Select Default Image:</Form.Label>
+
+                                <Form.Control
+                                    type="checkbox"
+                                    id='DefaultImage'
+                                    value={selectedDefaultImage}
+                                    onChange={handleDefaultImageChange}
+                                >
+                                </Form.Control>
+                            </Form.Group>
 
                             < Form.File
-                            id="image-upload"
-                            accept="image/*"
-                            onChange={handleChangeImage}
-                            ref={imageInput}
+                                id="image-upload"
+                                accept="image/*"
+                                onChange={handleChangeImage}
+                                ref={imageInput}
                             />
                         </Form.Group>
                         {errors?.image?.map((message, idx) => (
@@ -290,6 +294,7 @@ function PlaydatesCreateForm() {
                         ))}
 
                         <div className="d-md-none">{textFields}</div>
+                    
                     </Container>
                 </Col>
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">

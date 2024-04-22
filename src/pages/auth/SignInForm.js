@@ -53,11 +53,12 @@ function SignInForm() {
           <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none">Username</Form.Label>
+              <Form.Label className="d-none" htmlFor="username">Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Username"
                 name="username"
+                id="username"
                 className={styles.Input}
                 value={username}
                 onChange={handleChange}

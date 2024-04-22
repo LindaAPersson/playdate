@@ -50,10 +50,11 @@ function ContactForm() {
                     <h1 className={styles.Header}>Contact</h1>
                     <Form onSubmit={handleSubmit}>
                         <Form.Group>
-                            <Form.Label>Name</Form.Label>
+                            <Form.Label htmlFor="name">Name</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="name"
+                                id="name"
                                 value={name}
                                 onChange={handleChange}
                             />
@@ -65,10 +66,11 @@ function ContactForm() {
                         ))}
 
                         <Form.Group>
-                            <Form.Label>Email</Form.Label>
+                            <Form.Label htmlFor="email">Email</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="email"
+                                id="email"
                                 value={email}
                                 onChange={handleChange}
                             />
@@ -79,10 +81,11 @@ function ContactForm() {
                             </Alert>
                         ))}
                         <Form.Group>
-                            <Form.Label>Subject</Form.Label>
+                            <Form.Label htmlFor="subject">Subject</Form.Label>
                             <Form.Control
                                 type="text"
                                 name="subject"
+                                id="subject"
                                 value={subject}
                                 onChange={handleChange}
                             />
@@ -93,10 +96,11 @@ function ContactForm() {
                             </Alert>
                         ))}
                         <Form.Group>
-                            <Form.Label>Message</Form.Label>
+                            <Form.Label htmlFor="message">Message</Form.Label>
                             <Form.Control
                                 as="textarea"
                                 name="message"
+                                id="message"
                                 value={message}
                                 onChange={handleChange}
                                 rows={6}
@@ -128,7 +132,8 @@ function ContactForm() {
             >
                 <Image
                     className={`${appStyles.FillerImage}`}
-                    src={"https://codeinstitute.s3.amazonaws.com/AdvancedReact/hero.jpg"}
+                    src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713771236/media/images/drawing-2009817_1280_x70ega.jpg'
+                    alt="Spacer image of child drawing"
                 />
             </Col>
         </Row>
