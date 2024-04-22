@@ -26,6 +26,7 @@ function PlaydatesPage({ message, filter = "" }) {
 
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
+
     const handleStartDateChange = (date) => {
         setStartDate(new Date(date));
     };
@@ -33,21 +34,15 @@ function PlaydatesPage({ message, filter = "" }) {
     const handleEndDateChange = (date) => {
         setEndDate(new Date(date));
     };
-    
+
     useEffect(() => {
         console.log("Selected start date:", startDate);
-    console.log("Selected end date:", endDate);
+        console.log("Selected end date:", endDate);
         const fetchPlaydate = async () => {
             try {
                 const queryParams = new URLSearchParams();
                 queryParams.append('search', query);
                 queryParams.append('filter', filter);
-                if (startDate) {
-                    queryParams.append('start_date', startDate);
-                }
-                if (endDate) {
-                    queryParams.append('end_date', endDate);
-                }
                 const { data } = await axiosReq.get(`/playdate/?${filter}${queryParams}`);
                 setPlaydates(data);
                 setHasLoaded(true);
@@ -66,6 +61,27 @@ function PlaydatesPage({ message, filter = "" }) {
         };
     }, [filter, query, pathname, startDate, endDate]);
 
+    const handleFilterSubmit = async () => {
+        try {
+            const queryParams = new URLSearchParams();
+            queryParams.append('search', query);
+            queryParams.append('filter', filter);
+            if (startDate) {
+                queryParams.append('start_date', startDate.toISOString().split('T')[0]);
+            }
+            if (endDate) {
+                queryParams.append('end_date', endDate.toISOString().split('T')[0]);
+            }
+            const { data } = await axiosReq.get(`/playdate/?${filter}${queryParams}`);
+            setPlaydates(data);
+            setHasLoaded(true);
+        } catch (err) {
+            console.log(err);
+        }
+    };
+
+
+
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -83,9 +99,11 @@ function PlaydatesPage({ message, filter = "" }) {
                     />
 
                 </Form>
-                
+
                 <input type="date" value={startDate} onChange={(e) => handleStartDateChange(e.target.value)} />
                 <input type="date" value={endDate} onChange={(e) => handleEndDateChange(e.target.value)} />
+                <button onClick={handleFilterSubmit}>Filter</button>
+
 
                 {hasLoaded ? (
                     <>
