@@ -15,7 +15,8 @@ import { axiosReq } from "../../api/axiosDefaults";
 
 import NoResults from "../../assets/no-results.png";
 import InfiniteScroll from "react-infinite-scroll-component";
-import {fetchMoreData} from "../../utils/utils";
+import { fetchMoreData } from "../../utils/utils";
+
 
 function PlaydatesPage({ message, filter = "" }) {
     const [playdates, setPlaydates] = useState({ results: [] });
@@ -23,10 +24,31 @@ function PlaydatesPage({ message, filter = "" }) {
     const { pathname } = useLocation();
     const [query, setQuery] = useState("");
 
+    const [startDate, setStartDate] = useState('');
+    const [endDate, setEndDate] = useState('');
+    const handleStartDateChange = (date) => {
+        setStartDate(new Date(date));
+    };
+
+    const handleEndDateChange = (date) => {
+        setEndDate(new Date(date));
+    };
+    
     useEffect(() => {
+        console.log("Selected start date:", startDate);
+    console.log("Selected end date:", endDate);
         const fetchPlaydate = async () => {
             try {
-                const { data } = await axiosReq.get(`/playdate/?${filter}search=${query}`);
+                const queryParams = new URLSearchParams();
+                queryParams.append('search', query);
+                queryParams.append('filter', filter);
+                if (startDate) {
+                    queryParams.append('start_date', startDate);
+                }
+                if (endDate) {
+                    queryParams.append('end_date', endDate);
+                }
+                const { data } = await axiosReq.get(`/playdate/?${filter}${queryParams}`);
                 setPlaydates(data);
                 setHasLoaded(true);
             } catch (err) {
@@ -42,7 +64,7 @@ function PlaydatesPage({ message, filter = "" }) {
         return () => {
             clearTimeout(timer);
         };
-    }, [filter, query, pathname]);
+    }, [filter, query, pathname, startDate, endDate]);
 
     return (
         <Row className="h-100">
@@ -59,7 +81,11 @@ function PlaydatesPage({ message, filter = "" }) {
                         className="mr-sm-2"
                         placeholder="Search posts"
                     />
+
                 </Form>
+                
+                <input type="date" value={startDate} onChange={(e) => handleStartDateChange(e.target.value)} />
+                <input type="date" value={endDate} onChange={(e) => handleEndDateChange(e.target.value)} />
 
                 {hasLoaded ? (
                     <>
@@ -86,7 +112,7 @@ function PlaydatesPage({ message, filter = "" }) {
                         <Asset spinner />
                     </Container>
                 )}
-                
+
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                 <p>Popular profiles for desktop</p>
