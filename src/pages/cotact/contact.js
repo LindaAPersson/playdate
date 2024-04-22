@@ -24,13 +24,18 @@ function ContactForm() {
 
     const { name, email, subject, message } = contactData;
     const [errors, setErrors] = useState({});
+    const [showSuccess, setShowSuccess] = useState(false);
     const history = useHistory();
 
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
             await axios.post("/contact/", contactData);
-            history.push("/");
+            setShowSuccess(true); // Show the success message
+            setTimeout(() => {
+                setShowSuccess(false); // Hide the success message after some time
+                history.push("/");
+            }, 3000);
         } catch (err) {
             setErrors(err.response?.data);
         }
@@ -46,6 +51,11 @@ function ContactForm() {
     return (
         <Row className={styles.Row}>
             <Col className="my-auto p-0 p-md-2" md={6}>
+            {showSuccess && (
+                <Alert variant="success">
+                    <p>Aww yeah, your contact request was sent successfully.</p>
+                </Alert>
+            )}
                 <Container className={`${appStyles.Content} p-4 `}>
                     <h1 className={styles.Header}>Contact</h1>
                     <Form onSubmit={handleSubmit}>
