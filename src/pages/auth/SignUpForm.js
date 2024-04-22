@@ -53,7 +53,7 @@ const SignUpForm = () => {
 
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none">username</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden}>username</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="text"
@@ -70,12 +70,13 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password1">
-              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden} htmlFor="password1">Password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
                 placeholder="Password"
                 name="password1"
+                id="password1"
                 value={password1}
                 onChange={handleChange}
               />
@@ -87,7 +88,7 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password2">
-              <Form.Label className="d-none" htmlFor="password2">Confirm password</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden} htmlFor="password2">Confirm password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
@@ -131,6 +132,7 @@ const SignUpForm = () => {
         <Image
           className={`${appStyles.FillerImage}`}
           src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713776946/signup_gzzwb8.jpg'
+          alt="Spacer image of childred watching tv"
         />
       </Col>
     </Row>
