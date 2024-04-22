@@ -53,7 +53,7 @@ function SignInForm() {
           <h1 className={styles.Header}>sign in</h1>
           <Form onSubmit={handleSubmit}>
             <Form.Group controlId="username">
-              <Form.Label className="d-none" htmlFor="username">Username</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden} htmlFor="username">Username</Form.Label>
               <Form.Control
                 type="text"
                 placeholder="Username"
@@ -71,11 +71,12 @@ function SignInForm() {
             ))}
 
             <Form.Group controlId="password">
-              <Form.Label className="d-none">Password</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden} htmlFor="password">Password</Form.Label>
               <Form.Control
                 type="password"
                 placeholder="Password"
                 name="password"
+                id="password"
                 className={styles.Input}
                 value={password}
                 onChange={handleChange}
@@ -112,6 +113,7 @@ function SignInForm() {
         <Image
           className={`${appStyles.FillerImage}`}
           src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713776945/signin_juccvp.jpg'
+          alt="Spacer image of childred playing in water"
         />
       </Col>
     </Row>
