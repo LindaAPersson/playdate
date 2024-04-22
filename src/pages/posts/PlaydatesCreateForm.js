@@ -93,11 +93,11 @@ function PlaydatesCreateForm() {
     const textFields = (
         <div className="text-center">
             <Form.Group>
-                <Form.Label htmlFor="Title">Title</Form.Label>
+                <Form.Label htmlFor="title">Title</Form.Label>
                 <Form.Control
                     type="text"
-                    id="Title"
-                    name="Title"
+                    id="title"
+                    name="title"
                     value={title}
                     onChange={handleChange}
                 />

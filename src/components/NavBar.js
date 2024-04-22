@@ -33,7 +33,7 @@ const NavBar = () => {
         > Log out
             <i className="fa-solid fa-arrow-right-from-bracket"></i>       
         </NavLink>
-        Signed in as: {currentUser?.username}
+        <span className={styles.NavLink}>Signed in as: {currentUser?.username}<i className="fa-solid fa-baby"></i></span>
     </>;
     const loggedOutIcons = (
         <>
