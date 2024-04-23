@@ -7,7 +7,7 @@ import Container from "react-bootstrap/Container";
 
 import Playdate from "./Playdate";
 import Asset from "../../components/Assets";
-
+import btnStyles from "../../styles/Button.module.css";
 import appStyles from "../../App.module.css";
 import styles from "../../styles/PlaydatesPage.module.css";
 import { useLocation } from "react-router";
@@ -79,7 +79,9 @@ function PlaydatesPage({ message, filter = "" }) {
         } catch (err) {
             console.log(err);
         }
+
     };
+
 
 
 
@@ -100,11 +102,29 @@ function PlaydatesPage({ message, filter = "" }) {
                     />
 
                 </Form>
-
-                <input type="date" value={startDate} onChange={(e) => handleStartDateChange(e.target.value)} />
-                <input type="date" value={endDate} onChange={(e) => handleEndDateChange(e.target.value)} />
-                <button onClick={handleFilterSubmit}>Filter</button>
-
+                <div className="d-flex align-items-center">
+                    <Form.Group className="mr-3">
+                        <Form.Label htmlFor='startDate'>Start Date</Form.Label>
+                        <Form.Control
+                            type="date"
+                            name="startDate"
+                            id="startDate"
+                            value={startDate}
+                            onChange={(e) => handleStartDateChange(e.target.value)}
+                        />
+                    </Form.Group>
+                    <Form.Group className="mr-3">
+                        <Form.Label htmlFor='endDate'>End Date</Form.Label>
+                        <Form.Control
+                            type="date"
+                            name="endDate"
+                            id="endDate"
+                            value={endDate}
+                            onChange={(e) => handleEndDateChange(e.target.value)}
+                        />
+                    </Form.Group>
+                    <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleFilterSubmit}>Filter</button>
+                </div>
 
                 {hasLoaded ? (
                     <>
