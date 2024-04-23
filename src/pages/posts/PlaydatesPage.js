@@ -35,6 +35,10 @@ function PlaydatesPage({ message, filter = "" }) {
     const handleEndDateChange = (date) => {
         setEndDate(date);
     };
+    const handleClearDates = () => {
+        setStartDate('');
+        setEndDate('');
+    };
 
     useEffect(() => {
         console.log("Selected start date:", startDate);
@@ -124,6 +128,7 @@ function PlaydatesPage({ message, filter = "" }) {
                         />
                     </Form.Group>
                     <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleFilterSubmit}>Filter</button>
+                    <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleClearDates}>Clear Dates</button>
                 </div>
 
                 {hasLoaded ? (
