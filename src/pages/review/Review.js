@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Media } from "react-bootstrap";
 import styles from "../../styles/Comment.module.css";
-import { useCurrentUser  } from "../../contexts/CurrentUserContext";
+import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import ReviewEditForm from "./ReviewEditForm";
@@ -30,7 +30,7 @@ const Review = (props) => {
         ...prevReviews,
         results: prevReviews.results.filter((review) => review.id !== id),
       }));
-    } catch (err) {}
+    } catch (err) { }
   };
 
   return (
@@ -41,18 +41,21 @@ const Review = (props) => {
           <span className={styles.Owner}>{user}</span>
           <span className={styles.Date}>{created_at}</span>
           {showEditForm ? (
-            <ReviewEditForm 
-            id={id}
-            content={comment}
-            setComments={setReviews}
-            setShowEditForm={setShowEditForm}
+            <ReviewEditForm
+              id={id}
+              comment={comment}
+              attendance={attendance}
+              bring_this={bring_this}
+              age_recommendation={age_recommendation}
+              setReviews={setReviews}
+              setShowEditForm={setShowEditForm}
             />
           ) : (
             <p>
-                {attendance }
-                {comment}
-                {bring_this}
-                {age_recommendation}
+              {attendance}
+              {comment}
+              {bring_this}
+              {age_recommendation}
             </p>
           )}
         </Media.Body>

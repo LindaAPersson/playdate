@@ -11,9 +11,9 @@ function ReviewEditForm(props) {
   const [formContent, setFormContent] = useState(
     {
       comment: initialValues.comment || "",
-    attendance: initialValues.attendance || false,
-    bring_this: initialValues.bring_this || "",
-    age_recommendation: initialValues.age_recommendation || "",
+      attendance: initialValues.attendance || false,
+      bring_this: initialValues.bring_this || "",
+      age_recommendation: initialValues.age_recommendation || "",
     }
 
   );
@@ -29,28 +29,22 @@ function ReviewEditForm(props) {
   const handleChangeCheckbox = (event) => {
     const { name, checked } = event.target;
     setFormContent({
-        ...formContent,
-        [name]: checked, 
+      ...formContent,
+      [name]: checked,
     });
-};
+  };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
       await axiosRes.put(`/review/${id}/`, formContent);
+      // Update the reviews state
       setReviews((prevReviews) => ({
         ...prevReviews,
-        results: prevReviews.results.map((review) => {
-          return review.id === id
-            ? {
-              ...review,
-              ...formContent,
-
-              updated_at: "now",
-            }
-            : review;
-        }),
+        results: prevReviews.results.map((review) =>
+          review.id === id ? { ...review, ...formContent, updated_at: "now" } : review
+        ),
       }));
       setShowEditForm(false);
     } catch (err) {
