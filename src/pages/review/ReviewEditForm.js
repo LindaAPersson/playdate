@@ -19,20 +19,26 @@ function ReviewEditForm(props) {
   );
 
   const handleChange = (event) => {
-
+    const { name, value } = event.target;
     setFormContent({
       ...formContent,
-      [event.target.name]: event.target.value,
-  });
+      [name]: value,
+    });
   };
+
+  const handleChangeCheckbox = (event) => {
+    const { name, checked } = event.target;
+    setFormContent({
+        ...formContent,
+        [name]: checked, 
+    });
+};
 
   const handleSubmit = async (event) => {
     event.preventDefault();
 
     try {
-      await axiosRes.put(`/review/${id}/`, {
-
-      });
+      await axiosRes.put(`/review/${id}/`, formContent);
       setReviews((prevReviews) => ({
         ...prevReviews,
         results: prevReviews.results.map((review) => {
@@ -75,7 +81,7 @@ function ReviewEditForm(props) {
           label="Attendance"
           name="attendance"
           checked={formContent.attendance}
-          onChange={handleChange}
+          onChange={handleChangeCheckbox}
         />
 
       </Form.Group>
