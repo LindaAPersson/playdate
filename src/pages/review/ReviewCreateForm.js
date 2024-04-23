@@ -1,14 +1,17 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
+import Alert from "react-bootstrap/Alert";
+import Container from "react-bootstrap/Container";
+import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/PlaydatesCreateEditForm.module.css";
 import appStyles from "../../App.module.css";
 import btnStyles from "../../styles/Button.module.css";
-import styles from "../../styles/CommentCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function ReviewCreateForm(props) {
     const { playdate_post, setPlaydate_post, setReviews } = props;
+    const [errors, setErrors] = useState({});
     const [postData, setPostData] = useState({
         comment: "",
         attendance: "",
@@ -129,7 +132,7 @@ function ReviewCreateForm(props) {
             <div className="d-md-none">{textFields}</div>
             <button
                 className={`${styles.Button} btn d-block ml-auto`}
-                disabled={!content.trim()}
+                disabled={!comment.trim()}
                 type="submit"
             >
                 post
