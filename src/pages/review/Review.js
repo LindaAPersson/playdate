@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Media } from "react-bootstrap";
-import { Card } from "react-bootstrap";
 import styles from "../../styles/Comment.module.css";
 import { useCurrentUser  } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
@@ -8,7 +7,7 @@ import { MoreDropdown } from "../../components/MoreDropdown";
 import ReviewEditForm from "./ReviewEditForm";
 
 const Review = (props) => {
-  const { id, user, created_at, playdate_post, comment, attendance, bring_this, age_recommendation,
+  const { id, user, created_at, comment, attendance, bring_this, age_recommendation,
     setPlaydate_post,
     setReviews } = props;
 

@@ -1,12 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
-import Container from "react-bootstrap/Container";
-import Col from "react-bootstrap/Col";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/PlaydatesCreateEditForm.module.css";
-import appStyles from "../../App.module.css";
-import btnStyles from "../../styles/Button.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function ReviewCreateForm(props) {
@@ -58,7 +53,7 @@ function ReviewCreateForm(props) {
                     },
                 ],
             }));
-            setReviews("");
+            
             setComment("");
             setAttendance(false);
             setBring_this("");
@@ -66,10 +61,7 @@ function ReviewCreateForm(props) {
         } catch (err) {
             console.log(err);
         }
-    };
-
-
-
+    }
 
     return (
         <Form className="mt-2" onSubmit={handleSubmit}>

@@ -28,12 +28,14 @@ function PlaydatePage() {
   useEffect(() => {
     const handleMount = async () => {
       try {
-        const [{ data: playdate }, { data: comments }] = await Promise.all([
+        const [{ data: playdate }, { data: comments }, { data: reviews }] = await Promise.all([
           axiosReq.get(`/playdate/${id}`),
-          axiosReq.get(`/comments/?playdate_post=${id}`)
+          axiosReq.get(`/comments/?playdate_post=${id}`),
+          axiosReq.get(`/review/?playdate_post=${id}`)
         ]);
         setPlaydate({ results: [playdate] });
         setComments(comments);
+        setReviews(reviews);
       } catch (err) {
         console.log(err);
       }
@@ -92,7 +94,7 @@ function PlaydatePage() {
           {reviews.results.length ? (
             <InfiniteScroll
               children={reviews.results.map((review) => (
-                <Comment
+                <Review
                   key={review.id}
                   {...review}
                   setPlaydate_post={setPlaydate}

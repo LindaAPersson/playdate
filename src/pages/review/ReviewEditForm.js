@@ -23,7 +23,7 @@ function ReviewEditForm(props) {
     event.preventDefault();
     try {
       await axiosRes.put(`/review/${id}/`, {
-        content: formContent.trim(),
+        comment: formContent.trim(),
       });
       setReviews((prevComments) => ({
         ...prevComments,
@@ -31,7 +31,7 @@ function ReviewEditForm(props) {
           return comment.id === id
             ? {
                 ...comment,
-                content: formContent.trim(),
+                comment: formContent.trim(),
                 updated_at: "now",
               }
             : comment;
