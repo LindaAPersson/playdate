@@ -6,42 +6,44 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 function ReviewEditForm(props) {
   const { id, user, created_at, playdate_post, comment, attendance, bring_this, age_recommendation,
     setShowEditForm,
-    setReviews } = props;
+    setReviews, ...initialValues } = props;
 
   const [formContent, setFormContent] = useState(
-    comment,
-    attendance,
-    bring_this,
-    age_recommendation,
+    {
+      comment: initialValues.comment || "",
+    attendance: initialValues.attendance || false,
+    bring_this: initialValues.bring_this || "",
+    age_recommendation: initialValues.age_recommendation || "",
+    }
 
   );
 
   const handleChange = (event) => {
-    setFormContent(event.target.value);
+
+    setFormContent({
+      ...formContent,
+      [event.target.name]: event.target.value,
+  });
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     try {
       await axiosRes.put(`/review/${id}/`, {
-        comment: formContent.trim(),
-        attendance: formContent.trim(),
-        bring_this: formContent.trim(),
-        age_recommendation: formContent.trim(),
+
       });
-      setReviews((prevComments) => ({
-        ...prevComments,
-        results: prevComments.results.map((comment) => {
-          return comment.id === id
+      setReviews((prevReviews) => ({
+        ...prevReviews,
+        results: prevReviews.results.map((review) => {
+          return review.id === id
             ? {
-              ...comment,
-              comment: formContent.trim(),
-              attendance: formContent.trim(),
-              bring_this: formContent.trim(),
-              age_recommendation: formContent.trim(),
+              ...review,
+              ...formContent,
+
               updated_at: "now",
             }
-            : comment;
+            : review;
         }),
       }));
       setShowEditForm(false);
@@ -59,7 +61,7 @@ function ReviewEditForm(props) {
           placeholder="my review..."
           name="comment"
           as="textarea"
-          value={formContent}
+          value={formContent.comment}
           onChange={handleChange}
           rows={2}
         />
@@ -72,7 +74,7 @@ function ReviewEditForm(props) {
           type="checkbox"
           label="Attendance"
           name="attendance"
-          checked={formContent}
+          checked={formContent.attendance}
           onChange={handleChange}
         />
 
@@ -84,7 +86,7 @@ function ReviewEditForm(props) {
           placeholder="bring this..."
           name="bring_this"
           type="text"
-          value={formContent}
+          value={formContent.bring_this}
           onChange={handleChange}
         />
 
@@ -96,7 +98,7 @@ function ReviewEditForm(props) {
           placeholder="suitable age..."
           name="age_recommendation"
           type="text"
-          value={formContent}
+          value={formContent.age_recommendation}
           onChange={handleChange}
         />
 
