@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
-import styles from "../../styles/PlaydatesCreateEditForm.module.css";
+import styles from "../../styles/ReviewCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
 
 function ReviewCreateForm(props) {
@@ -18,7 +18,7 @@ function ReviewCreateForm(props) {
                 setComment(value);
                 break;
             case "attendance":
-                setAttendance(checked);
+                setAttendance(checked ? true : false);
                 break;
             case "bring_this":
                 setBring_this(value);
@@ -69,7 +69,7 @@ function ReviewCreateForm(props) {
                 <InputGroup>
                 <Form.Control
                         className={styles.Form}
-                        placeholder="my review..."
+                        placeholder="My review..."
                         name="comment"
                         as="textarea"
                         value={comment}
@@ -83,7 +83,7 @@ function ReviewCreateForm(props) {
                     <Form.Check
                         className={styles.Form}
                         type="checkbox"
-                        label="Attendance"
+                        label="Did you attend the playdate?"
                         name="attendance"
                         checked={attendance}
                         onChange={handleChange}
@@ -94,7 +94,7 @@ function ReviewCreateForm(props) {
                 <InputGroup>
                     <Form.Control
                         className={styles.Form}
-                        placeholder="bring this..."
+                        placeholder="Bring this..."
                         name="bring_this"
                         type="text"
                         value={bring_this}
@@ -106,7 +106,7 @@ function ReviewCreateForm(props) {
                 <InputGroup>
                     <Form.Control
                         className={styles.Form}
-                        placeholder="suitable age..."
+                        placeholder="What age group would you recommend?"
                         name="age_recommendation"
                         type="text"
                         value={age_recommendation}

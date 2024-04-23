@@ -1,19 +1,19 @@
 import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
-import styles from "../../styles/CommentCreateEditForm.module.css";
+import styles from "../../styles/ReviewCreateEditForm.module.css";
 
 function ReviewEditForm(props) {
-  const { id, user, created_at, playdate_post, comment, attendance, bring_this, age_recommendation,
+  const { id, comment, attendance, bring_this, age_recommendation,
     setShowEditForm,
-    setReviews, ...initialValues } = props;
+    setReviews } = props;
 
   const [formContent, setFormContent] = useState(
     {
-      comment: initialValues.comment || "",
-      attendance: initialValues.attendance || false,
-      bring_this: initialValues.bring_this || "",
-      age_recommendation: initialValues.age_recommendation || "",
+      comment,
+      attendance,
+      bring_this,
+      age_recommendation,
     }
 
   );
@@ -39,7 +39,7 @@ function ReviewEditForm(props) {
 
     try {
       await axiosRes.put(`/review/${id}/`, formContent);
-      // Update the reviews state
+
       setReviews((prevReviews) => ({
         ...prevReviews,
         results: prevReviews.results.map((review) =>
@@ -70,7 +70,7 @@ function ReviewEditForm(props) {
       <Form.Group>
 
         <Form.Check
-          className={styles.Form}
+          className={styles.Checkbox}
           type="checkbox"
           label="Attendance"
           name="attendance"

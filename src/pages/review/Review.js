@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Media } from "react-bootstrap";
-import styles from "../../styles/Comment.module.css";
+import styles from "../../styles/Review.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import ReviewEditForm from "./ReviewEditForm";
+import { Card } from "react-bootstrap";
 
 const Review = (props) => {
   const { id, user, created_at, comment, attendance, bring_this, age_recommendation,
@@ -51,12 +52,17 @@ const Review = (props) => {
               setShowEditForm={setShowEditForm}
             />
           ) : (
-            <p>
-              {attendance}
-              {comment}
-              {bring_this}
-              {age_recommendation}
-            </p>
+            <Card>
+              {attendance !== null && (
+                    <Card.Text><span className={styles.bold}>
+                        Did you attend the playdate? </span>{attendance ? "Yes" : "No"}
+                    </Card.Text>
+                )}
+              {comment && <Card.Text><span className={styles.bold}>Review: </span>{comment}</Card.Text>}
+              {bring_this && <Card.Text><span className={styles.bold}>Do you recommend bringing anything? </span>{bring_this}</Card.Text>}
+              {age_recommendation && <Card.Text><span className={styles.bold}>Recommended age group for this playdate? </span>{age_recommendation}</Card.Text>}
+              
+              </Card>
           )}
         </Media.Body>
         {is_user && !showEditForm && (
