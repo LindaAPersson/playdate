@@ -29,11 +29,11 @@ function PlaydatesPage({ message, filter = "" }) {
     const [endDate, setEndDate] = useState('');
 
     const handleStartDateChange = (date) => {
-        setStartDate(new Date(date));
+        setStartDate(date);
     };
 
     const handleEndDateChange = (date) => {
-        setEndDate(new Date(date));
+        setEndDate(date);
     };
 
     useEffect(() => {
@@ -68,10 +68,10 @@ function PlaydatesPage({ message, filter = "" }) {
             queryParams.append('search', query);
             queryParams.append('filter', filter);
             if (startDate) {
-                queryParams.append('start_date', startDate.toISOString().split('T')[0]);
+                queryParams.append('start_date', startDate);
             }
             if (endDate) {
-                queryParams.append('end_date', endDate.toISOString().split('T')[0]);
+                queryParams.append('end_date', endDate);
             }
             const { data } = await axiosReq.get(`/playdate/?${filter}${queryParams}`);
             setPlaydates(data);
