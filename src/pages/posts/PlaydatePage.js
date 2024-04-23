@@ -15,6 +15,7 @@ import Asset from "../../components/Assets";
 import { fetchMoreData } from "../../utils/utils";
 import Comment from "../comments/Comment";
 import Review from "../review/Review"
+import ReviewCreateForm from "../review/ReviewCreateForm";
 
 function PlaydatePage() {
   const { id } = useParams();
@@ -22,6 +23,7 @@ function PlaydatePage() {
 
   const currentUser = useCurrentUser();
   const [comments, setComments] = useState({ results: [] });
+  const [reviews, setReviews] = useState({ results: [] });
 
   useEffect(() => {
     const handleMount = async () => {
@@ -76,6 +78,40 @@ function PlaydatePage() {
             <span>No comments... yet</span>
           )}
         </Container>
+
+        <Container className={appStyles.Content}> {currentUser ? (
+          <ReviewCreateForm
+            user={currentUser.user}
+            playdate_post={id}
+            setPlaydate={setPlaydate}
+            setReviews={setReviews}
+          />
+        ) : reviews.results.length ? (
+          "Reviews"
+        ) : null}
+          {reviews.results.length ? (
+            <InfiniteScroll
+              children={reviews.results.map((review) => (
+                <Comment
+                  key={review.id}
+                  {...review}
+                  setPlaydate_post={setPlaydate}
+                  setReviews={setReviews}
+                />
+              ))}
+              dataLength={reviews.results.length}
+              loader={<Asset spinner />}
+              hasMore={!!reviews.next}
+              next={() => fetchMoreData(reviews, setReviews)}
+            />
+
+          ) : currentUser ? (
+            <span>No reviews yet, be the first to leave one!</span>
+          ) : (
+            <span>No reviews... yet</span>
+          )}
+        </Container>
+
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         Popular profiles for desktop

@@ -11,33 +11,39 @@ import { axiosRes } from "../../api/axiosDefaults";
 
 function ReviewCreateForm(props) {
     const { playdate_post, setPlaydate_post, setReviews } = props;
-    const [errors, setErrors] = useState({});
-    const [postData, setPostData] = useState({
-        comment: "",
-        attendance: "",
-        bring_this: "",
-        age_recommendation: "",
-    });
-    const { comment, attendance, bring_this, age_recommendation, } = postData;
+    const [comment, setComment] = useState("");
+    const [attendance, setAttendance] = useState("");
+    const [bring_this, setBring_this] = useState("");
+    const [age_recommendation, setAge_recommendation] = useState("");
 
     const handleChange = (event) => {
-        setPostData({
-            ...postData,
-            [event.target.name]: event.target.value,
-        });
+        const { name, value, checked } = event.target;
+        switch (name) {
+            case "comment":
+                setComment(value);
+                break;
+            case "attendance":
+                setAttendance(checked);
+                break;
+            case "bring_this":
+                setBring_this(value);
+                break;
+            case "age_recommendation":
+                setAge_recommendation(value);
+                break;
+            default:
+                break;
+        }
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const formData = new FormData();
-
-        formData.append("comment", comment);
-        formData.append("attendance", attendance);
-        formData.append("bring_this", bring_this);
-        formData.append("age_recommendation", age_recommendation);
         try {
             const { data } = await axiosRes.post("/review/", {
-                formData,
+                comment,
+                attendance,
+                bring_this,
+                age_recommendation,
                 playdate_post,
             });
             setReviews((prevReviews) => ({
@@ -53,93 +59,76 @@ function ReviewCreateForm(props) {
                 ],
             }));
             setReviews("");
+            setComment("");
+            setAttendance(false);
+            setBring_this("");
+            setAge_recommendation("");
         } catch (err) {
             console.log(err);
         }
     };
 
-    const textFields = (
-        <div className="text-center">
-            <Form.Group>
-                <Form.Label htmlFor="comment">Review</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="comment"
-                    name="comment"
-                    value={comment}
-                    onChange={handleChange}
-                    rows={2}
-                />
-            </Form.Group>
-            {errors.comment?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="attendance">Attendance</Form.Label>
-                <Form.Control
-                    type="checkbox"
-                    id="attendance"
-                    name="attendance"
-                    value={attendance}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.attendance?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="bring_this">Bring this:</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="bring_this"
-                    name="bring_this"
-                    value={bring_this}
-                    onChange={handleChange}
-                    rows={2}
-                />
-            </Form.Group>
-            {errors.bring_this?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="age_recommendation">Suitable age</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="age_recommendation"
-                    name="age_recommendation"
-                    value={age_recommendation}
-                    onChange={handleChange}
-                    rows={2}
-                />
-            </Form.Group>
-            {errors.age_recommendation?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-        </div>
-    );
+
 
 
     return (
         <Form className="mt-2" onSubmit={handleSubmit}>
-            <div className="d-md-none">{textFields}</div>
+            <Form.Group>
+                <InputGroup>
+                <Form.Control
+                        className={styles.Form}
+                        placeholder="my review..."
+                        name="comment"
+                        as="textarea"
+                        value={comment}
+                        onChange={handleChange}
+                        rows={2}
+                    />
+                </InputGroup>
+            </Form.Group>
+            <Form.Group>
+                <InputGroup>
+                    <Form.Check
+                        className={styles.Form}
+                        type="checkbox"
+                        label="Attendance"
+                        name="attendance"
+                        checked={attendance}
+                        onChange={handleChange}
+                    />
+                </InputGroup>
+            </Form.Group>
+            <Form.Group>
+                <InputGroup>
+                    <Form.Control
+                        className={styles.Form}
+                        placeholder="bring this..."
+                        name="bring_this"
+                        type="text"
+                        value={bring_this}
+                        onChange={handleChange}
+                    />
+                </InputGroup>
+            </Form.Group>
+            <Form.Group>
+                <InputGroup>
+                    <Form.Control
+                        className={styles.Form}
+                        placeholder="suitable age..."
+                        name="age_recommendation"
+                        type="text"
+                        value={age_recommendation}
+                        onChange={handleChange}
+                    />
+                </InputGroup>
+            </Form.Group>
             <button
                 className={`${styles.Button} btn d-block ml-auto`}
-                disabled={!comment.trim()}
+
                 type="submit"
             >
                 post
             </button>
-            <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={appStyles.Content}>{textFields}</Container>
-                </Col>
         </Form>
     );
 }

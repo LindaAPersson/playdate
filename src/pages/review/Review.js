@@ -49,12 +49,12 @@ const Review = (props) => {
             setShowEditForm={setShowEditForm}
             />
           ) : (
-            <Card.Body>
-                {attendance && <Card.Text><span className={styles.bold}>Attendance: </span>{attendance}</Card.Text>}
-                {comment && <Card.Text><span className={styles.bold}>Comment: </span>{comment}</Card.Text>}
-                {bring_this && <Card.Text><span className={styles.bold}>bring_this: </span>{bring_this}</Card.Text>}
-                {age_recommendation && <Card.Text><span className={styles.bold}>age_recommendation: </span>{age_recommendation}</Card.Text>}
-            </Card.Body>
+            <p>
+                {attendance }
+                {comment}
+                {bring_this}
+                {age_recommendation}
+            </p>
           )}
         </Media.Body>
         {is_user && !showEditForm && (
