@@ -14,6 +14,7 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import Asset from "../../components/Assets";
 import { fetchMoreData } from "../../utils/utils";
 import Comment from "../comments/Comment";
+import Review from "../review/Review"
 
 function PlaydatePage() {
   const { id } = useParams();
@@ -68,8 +69,6 @@ function PlaydatePage() {
               hasMore={!!comments.next}
               next={() => fetchMoreData(comments, setComments)}
             />
-
-
 
           ) : currentUser ? (
             <span>No comments yet, be the first to comment!</span>

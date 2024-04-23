@@ -106,7 +106,7 @@ function PlaydatesPage({ message, filter = "" }) {
                     />
 
                 </Form>
-                <div className="d-flex align-items-center">
+                <Col className="d-flex align-items-centrum">
                     <Form.Group className="mr-3">
                         <Form.Label htmlFor='startDate'>Start Date</Form.Label>
                         <Form.Control
@@ -129,7 +129,7 @@ function PlaydatesPage({ message, filter = "" }) {
                     </Form.Group>
                     <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleFilterSubmit}>Filter</button>
                     <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleClearDates}>Clear Dates</button>
-                </div>
+                </Col>
 
                 {hasLoaded ? (
                     <>

@@ -32,6 +32,9 @@ const Playdate = (props) => {
         }
     };
 
+
+    const hasTakenPlace = new Date(date) < new Date();
+
     return (
         <Card className={styles.Post}>
 
@@ -53,19 +56,25 @@ const Playdate = (props) => {
                 )}
                 {organizer && <Card.Text><span className={styles.bold}>Organizer: </span>{organizer}</Card.Text>}
                 <div className={`text-left ${styles.createdAt}`}>
-                Created at: {created_at}
-                {is_organizer &&  (
-                    <MoreDropdown
-                        handleEdit={handleEdit}
-                        handleDelete={handleDelete}
-                    />
-                )}
+                    Created at: {created_at}
+                    {is_organizer && (
+                        <MoreDropdown
+                            handleEdit={handleEdit}
+                            handleDelete={handleDelete}
+                        />
+                    )}
                 </div>
                 <div className={styles.PostBar}>
                     <Link to={`/playdate/${id}`}>
                         <i className="far fa-comments" />
                     </Link>
                     {comments_count}
+                    {hasTakenPlace &&
+                        <Link to={`/playdate/${id}`}>
+                            <i className="fa-solid fa-pen"></i>
+                            Leave a Review
+                        </Link>
+                    }
                 </div>
             </Card.Body>
         </Card>
