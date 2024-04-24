@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
-
+import { Image } from "react-bootstrap";
 import appStyles from "../../App.module.css";
 import { useParams } from "react-router";
 import { axiosReq } from "../../api/axiosDefaults";
@@ -16,7 +16,7 @@ import { fetchMoreData } from "../../utils/utils";
 import Comment from "../comments/Comment";
 import Review from "../review/Review"
 import ReviewCreateForm from "../review/ReviewCreateForm";
-
+import styles from "../../styles/PlaydatesPage.module.css"
 import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 
@@ -144,7 +144,7 @@ function PlaydatePage() {
         </Accordion>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
-        Popular profiles for desktop
+        <Image className={styles.Image} src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713950941/calendar-8584340_1280_hzmvms.png'/>
       </Col>
     </Row>
   );

@@ -241,13 +241,7 @@ function PlaydatesCreateForm() {
             <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
                 create
             </Button>
-
-
-
-
-
         </div>
-
     );
 
     return (
