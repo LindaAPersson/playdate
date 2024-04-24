@@ -278,8 +278,6 @@ function PlaydatesCreateForm() {
                                         message="Click or tap to upload an image"
                                     />
                                 </Form.Label>
-
-
                             )}
                             <Form.Group className={`${styles.defultImg} text-left`}>
                                 <Form.Label className="text-left" htmlFor='DefaultImage'>Select Default Image:</Form.Label>
@@ -311,8 +309,7 @@ function PlaydatesCreateForm() {
                     </Container>
                 </Col>
 
-
-                <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2"> (// Desktop)
+                <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
                     <Container className={appStyles.Content}>
                         {textFields}
                     </Container>

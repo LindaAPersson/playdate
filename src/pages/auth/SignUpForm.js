@@ -70,7 +70,7 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password1">
-              <Form.Label className={appStyles.VisuallyHidden} htmlFor="password1">Password</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden}>Password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
@@ -88,7 +88,7 @@ const SignUpForm = () => {
             ))}
 
             <Form.Group controlId="password2">
-              <Form.Label className={appStyles.VisuallyHidden} htmlFor="password2">Confirm password</Form.Label>
+              <Form.Label className={appStyles.VisuallyHidden}>Confirm password</Form.Label>
               <Form.Control
                 className={styles.Input}
                 type="password"
