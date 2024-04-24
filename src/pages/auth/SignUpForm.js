@@ -74,7 +74,6 @@ const SignUpForm = () => {
                 type="password"
                 placeholder="Password"
                 name="password1"
-                id="password1"
                 value={password1}
                 onChange={handleChange}
               />
@@ -92,7 +91,6 @@ const SignUpForm = () => {
                 type="password"
                 placeholder="Confirm password"
                 name="password2"
-                id="password2"
                 value={password2}
                 onChange={handleChange}
               />

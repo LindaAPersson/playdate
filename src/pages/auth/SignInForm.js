@@ -60,7 +60,6 @@ function SignInForm() {
                 type="text"
                 placeholder="Username"
                 name="username"
-                id="username"
                 className={styles.Input}
                 value={username}
                 onChange={handleChange}
@@ -78,7 +77,6 @@ function SignInForm() {
                 type="password"
                 placeholder="Password"
                 name="password"
-                id="password"
                 className={styles.Input}
                 value={password}
                 onChange={handleChange}
