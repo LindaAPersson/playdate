@@ -104,15 +104,14 @@ function PlaydatesCreateForm() {
     const textFields = (
         <div className="text-center">
             <Form.Group controlId='title'>
-                <Form.Label>Title</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                />
-            </Form.Group>
+                            <Form.Label>Title</Form.Label>
+                            <Form.Control
+                                type="text"
+                                name="title"
+                                value={title}
+                                onChange={handleChange}
+                            />
+                        </Form.Group>
             {errors.title?.map((message, idx) => (
                 <Alert key={idx} variant="warning">
                     {message}
@@ -122,7 +121,6 @@ function PlaydatesCreateForm() {
                 <Form.Label>Date</Form.Label>
                 <Form.Control
                     type="date"
-                    id="date"
                     name="date"
                     value={date}
                     onChange={handleChange}
@@ -137,7 +135,6 @@ function PlaydatesCreateForm() {
                 <Form.Label>Time</Form.Label>
                 <Form.Control
                     type="time"
-                    id="time"
                     name="time"
                     value={time}
                     onChange={handleChange}
@@ -153,7 +150,6 @@ function PlaydatesCreateForm() {
                 <Form.Control
                     type="text"
                     name="location"
-                    id="location"
                     value={location}
                     onChange={handleChange}
                 />
@@ -169,7 +165,6 @@ function PlaydatesCreateForm() {
                     as="textarea"
                     rows={6}
                     name="description"
-                    id="description"
                     value={description}
                     onChange={handleChange}
                 />
@@ -184,7 +179,6 @@ function PlaydatesCreateForm() {
                 <Form.Control
                     type="number"
                     name="prize"
-                    id="prize"
                     value={prize}
                     onChange={handleChange}
                     placeholder="Enter prize amount"
@@ -200,7 +194,6 @@ function PlaydatesCreateForm() {
                 <Form.Control
                     as="select"
                     name="suitable_age"
-                    id="suitable_age"
                     value={suitable_age}
                     onChange={handleChange}
                 >
@@ -223,7 +216,6 @@ function PlaydatesCreateForm() {
                 <Form.Control
                     type="checkbox"
                     name="parent_stay_required"
-                    id="parent_stay_required"
                     checked={parent_stay_required}
                     onChange={handleChangeCheckbox}
                 />
@@ -312,7 +304,7 @@ function PlaydatesCreateForm() {
                 </Col>
 
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={appStyles.Content}>
+                    <Container className={appStyles.Content}> 
                         {textFields}
                     </Container>
                 </Col>

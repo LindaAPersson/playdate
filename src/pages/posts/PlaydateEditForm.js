@@ -91,7 +91,6 @@ function PlaydatesEditForm() {
     };
 
 
-
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -122,7 +121,7 @@ function PlaydatesEditForm() {
 
     const textFields = (
         <div className="text-center">
-            <Form.Group>
+            <Form.Group controlId='title'>
                 <Form.Label>Title</Form.Label>
                 <Form.Control
                     type="text"
@@ -136,7 +135,7 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId="date">
                 <Form.Label>Date</Form.Label>
                 <Form.Control
                     type="date"
@@ -150,7 +149,7 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId="time">
                 <Form.Label>Time</Form.Label>
                 <Form.Control
                     type="time"
@@ -164,7 +163,7 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId='location'>
                 <Form.Label>Location</Form.Label>
                 <Form.Control
                     type="text"
@@ -178,7 +177,7 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId="description">
                 <Form.Label>Description</Form.Label>
                 <Form.Control
                     as="textarea"
@@ -193,7 +192,7 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId="prize">
                 <Form.Label>Price</Form.Label>
                 <Form.Control
                     type="number"
@@ -208,20 +207,21 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId="suitable_age">
                 <Form.Label>Suitable Age</Form.Label>
                 <Form.Control
                     as="select"
                     name="suitable_age"
                     value={suitable_age}
                     onChange={handleChange}
-                    >
+                >
+                    <option value="">Select Age</option>
                     <option value="all">All Ages</option>
                     <option value="infant">Infant (0-2 years)</option>
                     <option value="toddler">Toddler (2-5 years)</option>
                     <option value="child">Child (5-12 years)</option>
                     <option value="teenager">Teenager (13-18 years)</option>
-                    
+
                 </Form.Control>
             </Form.Group>
             {errors.suitable_age?.map((message, idx) => (
@@ -229,7 +229,7 @@ function PlaydatesEditForm() {
                     {message}
                 </Alert>
             ))}
-            <Form.Group>
+            <Form.Group controlId="parent_stay_required">
                 <Form.Label>Parent Stay Required</Form.Label>
                 <Form.Control
                     type="checkbox"

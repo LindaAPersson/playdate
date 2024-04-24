@@ -41,8 +41,6 @@ function PlaydatesPage({ message, filter = "" }) {
     };
 
     useEffect(() => {
-        console.log("Selected start date:", startDate);
-        console.log("Selected end date:", endDate);
         const fetchPlaydate = async () => {
             try {
                 const queryParams = new URLSearchParams();

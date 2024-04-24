@@ -9,6 +9,7 @@ import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
 import { useState } from "react";
 import Alert from "react-bootstrap/Alert";
+import { removeTokenTimestamp } from '../utils/utils';
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
@@ -20,6 +21,7 @@ const NavBar = () => {
           await axios.post("dj-rest-auth/logout/");
           setShowSuccess(true); 
           setCurrentUser(null);
+          removeTokenTimestamp();
             setTimeout(() => {
                 setShowSuccess(false); 
             }, 3000);
