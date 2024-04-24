@@ -86,7 +86,7 @@ function PlaydatesEditForm() {
         const { name, checked } = event.target;
         setPostData({
             ...postData,
-            [name]: checked, // Use `checked` directly for checkbox inputs
+            [name]: checked,
         });
     };
 

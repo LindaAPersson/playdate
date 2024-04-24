@@ -41,6 +41,15 @@ function PlaydatesCreateForm() {
             [event.target.name]: event.target.value,
         });
     };
+
+    const handleChangeCheckbox = (event) => {
+        const { name, checked } = event.target;
+        setPostData({
+            ...postData,
+            [name]: checked,
+        });
+    };
+
     const handleDefaultImageChange = (event) => {
         fetch(defaultImageUrl)
             .then((res) => res.blob())
@@ -92,141 +101,10 @@ function PlaydatesCreateForm() {
 
     const textFields = (
         <div className="text-center">
-            <Form.Group>
-                <Form.Label htmlFor="title">Title</Form.Label>
-                <Form.Control
-                    type="text"
-                    id="title"
-                    name="title"
-                    value={title}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.title?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="date">Date</Form.Label>
-                <Form.Control
-                    type="date"
-                    id="date"
-                    name="date"
-                    value={date}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.date?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="time">Time</Form.Label>
-                <Form.Control
-                    type="time"
-                    id="time"
-                    name="time"
-                    value={time}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.time?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor='location'>Location</Form.Label>
-                <Form.Control
-                    type="text"
-                    name="location"
-                    value={location}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.location?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="description">Description</Form.Label>
-                <Form.Control
-                    as="textarea"
-                    rows={6}
-                    name="description"
-                    value={description}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.description?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="prize">Price</Form.Label>
-                <Form.Control
-                    type="number"
-                    name="prize"
-                    value={prize}
-                    onChange={handleChange}
-                    placeholder="Enter prize amount"
-                />
-            </Form.Group>
-            {errors.prize?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="suitable_age">Suitable Age</Form.Label>
-                <Form.Control
-                    as="select"
-                    name="suitable_age"
-                    value={suitable_age}
-                    onChange={handleChange}
-                >
-                    <option value="">Select Age</option>
-                    <option value="all">All Ages</option>
-                    <option value="infant">Infant (0-2 years)</option>
-                    <option value="toddler">Toddler (2-5 years)</option>
-                    <option value="child">Child (5-12 years)</option>
-                    <option value="teenager">Teenager (13-18 years)</option>
+            
+        
 
-                </Form.Control>
-            </Form.Group>
-            {errors.suitable_age?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-            <Form.Group>
-                <Form.Label htmlFor="parent_stay_required">Parent Stay Required</Form.Label>
-                <Form.Control
-                    type="checkbox"
-                    name="parent_stay_required"
-                    checked={parent_stay_required}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-            {errors.parent_stay_required?.map((message, idx) => (
-                <Alert key={idx} variant="warning">
-                    {message}
-                </Alert>
-            ))}
-
-            <Button
-                className={`${btnStyles.Button} ${btnStyles.Blue}`}
-                onClick={() => history.goBack()}
-            >
-                cancel
-            </Button>
-            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
-                create
-            </Button>
+            
         </div>
 
     );
@@ -298,7 +176,149 @@ function PlaydatesCreateForm() {
                     </Container>
                 </Col>
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={appStyles.Content}>{textFields}</Container>
+                    <Container className={appStyles.Content}>
+
+                    <Form.Group controlId='title'>
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                    type="text"
+                    id="title"
+                    name="title"
+                    value={title}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.title?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId="date">
+                <Form.Label>Date</Form.Label>
+                <Form.Control
+                    type="date"
+                    id="date"
+                    name="date"
+                    value={date}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.date?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId="time">
+                <Form.Label>Time</Form.Label>
+                <Form.Control
+                    type="time"
+                    id="time"
+                    name="time"
+                    value={time}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.time?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId='location'>
+                <Form.Label>Location</Form.Label>
+                <Form.Control
+                    type="text"
+                    name="location"
+                    id="location"
+                    value={location}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.location?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId="description">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                    as="textarea"
+                    rows={6}
+                    name="description"
+                    id="description"
+                    value={description}
+                    onChange={handleChange}
+                />
+            </Form.Group>
+            {errors.description?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId="prize">
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                    type="number"
+                    name="prize"
+                    id="prize"
+                    value={prize}
+                    onChange={handleChange}
+                    placeholder="Enter prize amount"
+                />
+            </Form.Group>
+            {errors.prize?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId="suitable_age">
+                <Form.Label>Suitable Age</Form.Label>
+                <Form.Control
+                    as="select"
+                    name="suitable_age"
+                    id="suitable_age"
+                    value={suitable_age}
+                    onChange={handleChange}
+                >
+                    <option value="">Select Age</option>
+                    <option value="all">All Ages</option>
+                    <option value="infant">Infant (0-2 years)</option>
+                    <option value="toddler">Toddler (2-5 years)</option>
+                    <option value="child">Child (5-12 years)</option>
+                    <option value="teenager">Teenager (13-18 years)</option>
+
+                </Form.Control>
+            </Form.Group>
+            {errors.suitable_age?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+            <Form.Group controlId="parent_stay_required">
+                <Form.Label>Parent Stay Required</Form.Label>
+                <Form.Control
+                    type="checkbox"
+                    name="parent_stay_required"
+                    id="parent_stay_required"
+                    checked={parent_stay_required}
+                    onChange={handleChangeCheckbox}
+                />
+            </Form.Group>
+            {errors.parent_stay_required?.map((message, idx) => (
+                <Alert key={idx} variant="warning">
+                    {message}
+                </Alert>
+            ))}
+
+            <Button
+                className={`${btnStyles.Button} ${btnStyles.Blue}`}
+                onClick={() => history.goBack()}
+            >
+                cancel
+            </Button>
+            <Button className={`${btnStyles.Button} ${btnStyles.Blue}`} type="submit">
+                create
+            </Button>
+                    </Container>
                 </Col>
             </Row>
         </Form>
