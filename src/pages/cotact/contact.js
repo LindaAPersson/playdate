@@ -31,9 +31,9 @@ function ContactForm() {
         event.preventDefault();
         try {
             await axios.post("/contact/", contactData);
-            setShowSuccess(true); // Show the success message
+            setShowSuccess(true); 
             setTimeout(() => {
-                setShowSuccess(false); // Hide the success message after some time
+                setShowSuccess(false); 
                 history.push("/");
             }, 3000);
         } catch (err) {

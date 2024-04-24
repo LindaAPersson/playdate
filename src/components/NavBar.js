@@ -7,16 +7,24 @@ import { useCurrentUser, useSetCurrentUser } from '../contexts/CurrentUserContex
 import axios from "axios";
 import useClickOutsideToggle from "../hooks/useClickOutsideToggle";
 
+import { useState } from "react";
+import Alert from "react-bootstrap/Alert";
 const NavBar = () => {
     const currentUser = useCurrentUser();
     const setCurrentUser = useSetCurrentUser();
-
+    const [showSuccess, setShowSuccess] = useState(false);
     const { expanded, setExpanded, ref } = useClickOutsideToggle();
 
     const handleSignOut = async () => {
         try {
           await axios.post("dj-rest-auth/logout/");
+          setShowSuccess(true); 
           setCurrentUser(null);
+            setTimeout(() => {
+                setShowSuccess(false); 
+            }, 3000);
+            
+          
         } catch (err) {
           console.log(err);
         }
@@ -26,6 +34,7 @@ const NavBar = () => {
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/playdate/create"><i className="fa-solid fa-square-plus"></i>Add Playdate</NavLink>
     )
     const loggedInIcons = <>
+    
         <NavLink className={styles.NavLink} activeClassName={styles.Active} to="/myplaydate">My Playdates <i className="fa-solid fa-child-reaching"></i></NavLink>
         <NavLink className={styles.NavLink} 
             to="/" 
@@ -44,6 +53,11 @@ const NavBar = () => {
     return (
         <Navbar expanded={expanded} className={styles.NavBar} expand="md" fixed="top">
             <Container>
+            {showSuccess && (
+                <Alert variant="success">
+                    <p>You have successfully signed out.</p>
+                </Alert>
+            )}
                 <NavLink to="/">
                     <Navbar.Brand><img src={logo} alt="logo" height="45" /></Navbar.Brand>
                 </NavLink>
