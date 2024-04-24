@@ -17,6 +17,9 @@ import Comment from "../comments/Comment";
 import Review from "../review/Review"
 import ReviewCreateForm from "../review/ReviewCreateForm";
 
+import Accordion from 'react-bootstrap/Accordion'
+import Card from 'react-bootstrap/Card'
+
 function PlaydatePage() {
   const { id } = useParams();
   const [playdate, setPlaydate] = useState({ results: [] });
@@ -46,8 +49,17 @@ function PlaydatePage() {
 
   return (
     <Row className="h-100">
+      
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Playdate {...playdate.results[0]} setPlaydate={setPlaydate} PlaydatePage />
+        <Accordion defaultActiveKey="0">
+      <Card>
+    <Accordion.Toggle as={Card.Header} eventKey="0">
+      Comments!
+    </Accordion.Toggle>
+    <Accordion.Collapse eventKey="0">
+      <Card.Body>
+
         <Container className={appStyles.Content}> {currentUser ? (
           <CommentCreateForm
             user={currentUser.user}
@@ -80,6 +92,16 @@ function PlaydatePage() {
             <span>No comments... yet</span>
           )}
         </Container>
+        
+        </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+  <Card>
+    <Accordion.Toggle as={Card.Header} eventKey="1">
+      Review!
+    </Accordion.Toggle>
+    <Accordion.Collapse eventKey="1">
+      <Card.Body>
 
         <Container className={appStyles.Content}> {currentUser ? (
           <ReviewCreateForm
@@ -113,12 +135,15 @@ function PlaydatePage() {
             <span>No reviews... yet</span>
           )}
         </Container>
-
+        </Card.Body>
+    </Accordion.Collapse>
+  </Card>
+  </Accordion>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         Popular profiles for desktop
       </Col>
-    </Row>
+      </Row>
   );
 }
 
