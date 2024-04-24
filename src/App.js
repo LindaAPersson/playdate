@@ -18,8 +18,6 @@ import NotFound from "./components/NotFound";
 function App() {
   const currentUser = useCurrentUser();
 
-  console.log(currentUser);
-
   return (
     <div className={styles.App}>
       <NavBar />

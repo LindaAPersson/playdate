@@ -28,7 +28,7 @@ const Playdate = (props) => {
             await axiosRes.delete(`/playdate/${id}/`);
             history.goBack();
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
     };
 

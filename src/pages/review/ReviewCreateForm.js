@@ -59,7 +59,7 @@ function ReviewCreateForm(props) {
             setBring_this("");
             setAge_recommendation("");
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
     }
 

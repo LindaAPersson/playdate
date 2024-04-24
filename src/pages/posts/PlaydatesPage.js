@@ -48,7 +48,7 @@ function PlaydatesPage({ message, filter = "" }) {
                 setPlaydates(data);
                 setHasLoaded(true);
             } catch (err) {
-                console.log(err);
+                //console.log(err);
             }
         };
 
@@ -77,7 +77,7 @@ function PlaydatesPage({ message, filter = "" }) {
             setPlaydates(data);
             setHasLoaded(true);
         } catch (err) {
-            console.log(err);
+            //console.log(err);
         }
 
     };

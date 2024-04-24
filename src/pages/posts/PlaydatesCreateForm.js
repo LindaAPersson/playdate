@@ -65,7 +65,6 @@ function PlaydatesCreateForm() {
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
-            console.log("bild:", image)
             setPostData({
                 ...postData,
                 image: URL.createObjectURL(event.target.files[0]),
@@ -92,7 +91,7 @@ function PlaydatesCreateForm() {
             const { data } = await axiosReq.post("/playdate/", formData);
             history.push(`/playdate/${data.id}`);
         } catch (err) {
-            console.log(err);
+            //console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }

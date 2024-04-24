@@ -40,7 +40,7 @@ function PlaydatePage() {
         setComments(comments);
         setReviews(reviews);
       } catch (err) {
-        console.log(err);
+        //console.log(err);
       }
     };
 

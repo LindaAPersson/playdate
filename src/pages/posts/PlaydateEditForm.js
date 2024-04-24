@@ -43,7 +43,7 @@ function PlaydatesEditForm() {
   
           is_organizer ? setPostData({ title, date, location, description, prize, parent_stay_required, image, time, suitable_age }) : history.push("/");
         } catch (err) {
-          console.log(err);
+          //console.log(err);
         }
       };
   
@@ -109,7 +109,7 @@ function PlaydatesEditForm() {
             await axiosReq.put(`/playdate/${id}`, formData);
             history.push(`/playdate/${id}`);
         } catch (err) {
-            console.log(err);
+            //console.log(err);
             if (err.response?.status !== 401) {
                 setErrors(err.response?.data);
             }
