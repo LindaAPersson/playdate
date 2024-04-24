@@ -11,6 +11,7 @@ import PlaydatesPage from "./pages/posts/PlaydatesPage";
 import PlaydatesEditForm from "./pages/posts/PlaydateEditForm";
 import ContactForm from "./pages/cotact/contact";
 import { useCurrentUser } from "./contexts/CurrentUserContext";
+import NotFound from "./components/NotFound";
 
 
 
@@ -39,7 +40,7 @@ function App() {
           <Route exact path="/playdate/create" render={() => <PlaydatesCreateForm />} />
           <Route exact path="/playdate/:id" render={() => <PlaydatePage />} />
           <Route exact path="/playdate/:id/edit" render={() => <PlaydatesEditForm />} />
-          <Route render={() => <p>Page not found!</p>} />
+          <Route render={() => <NotFound />} />
         </Switch>
       </Container>
     </div>
