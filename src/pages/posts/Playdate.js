@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "../../styles/Post.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
-import { Card } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import { useHistory } from "react-router-dom/cjs/react-router-dom.min";

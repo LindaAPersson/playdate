@@ -1,11 +1,11 @@
 import React, { useState } from "react";
-import { Media } from "react-bootstrap";
+import Media from "react-bootstrap/Media";
 import styles from "../../styles/Review.module.css";
 import { useCurrentUser } from "../../contexts/CurrentUserContext";
 import { axiosRes } from "../../api/axiosDefaults";
 import { MoreDropdown } from "../../components/MoreDropdown";
 import ReviewEditForm from "./ReviewEditForm";
-import { Card } from "react-bootstrap";
+import Card from "react-bootstrap/Card";
 
 const Review = (props) => {
   const { id, user, created_at, comment, attendance, bring_this, age_recommendation,
