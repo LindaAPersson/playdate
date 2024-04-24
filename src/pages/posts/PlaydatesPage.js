@@ -82,9 +82,6 @@ function PlaydatesPage({ message, filter = "" }) {
 
     };
 
-
-
-
     return (
         <Row className="h-100">
             <Col className="py-2 p-0 p-lg-2" lg={8}>
@@ -102,7 +99,8 @@ function PlaydatesPage({ message, filter = "" }) {
                     />
 
                 </Form>
-                <Col className="d-flex align-items-centrum">
+                <Col className="py-2 p-0 p-lg-2 d-flex align-items-centrum" lg={8}>
+                <Form >
                     <Form.Group className="mr-3">
                         <Form.Label htmlFor='startDate'>Start Date</Form.Label>
                         <Form.Control
@@ -123,8 +121,9 @@ function PlaydatesPage({ message, filter = "" }) {
                             onChange={(e) => handleEndDateChange(e.target.value)}
                         />
                     </Form.Group>
-                    <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleFilterSubmit}>Filter</button>
-                    <button className={`${btnStyles.Button} ${btnStyles.Bright}`} onClick={handleClearDates}>Clear Dates</button>
+                    <button className={`${btnStyles.Button} ${btnStyles.Filterbutton}`} onClick={handleFilterSubmit}>Filter</button>
+                    <button className={`${btnStyles.Button} ${btnStyles.Filterbutton}`} onClick={handleClearDates}>Clear Dates</button>
+                </Form>
                 </Col>
 
                 {hasLoaded ? (
@@ -157,7 +156,7 @@ function PlaydatesPage({ message, filter = "" }) {
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
                 <Image className={styles.Image} src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713950941/calendar-8584340_1280_hzmvms.png'/>
             </Col>
-        </Row>
+        </Row >
     );
 }
 
