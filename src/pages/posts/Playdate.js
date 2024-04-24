@@ -32,7 +32,6 @@ const Playdate = (props) => {
         }
     };
 
-
     const hasTakenPlace = new Date(date) < new Date();
 
     return (

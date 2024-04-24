@@ -23,10 +23,11 @@ import Card from 'react-bootstrap/Card'
 function PlaydatePage() {
   const { id } = useParams();
   const [playdate, setPlaydate] = useState({ results: [] });
-
   const currentUser = useCurrentUser();
   const [comments, setComments] = useState({ results: [] });
   const [reviews, setReviews] = useState({ results: [] });
+
+  const hasTakenPlace = playdate.results.length > 0 && new Date(playdate.results[0].date) < new Date();
 
   useEffect(() => {
     const handleMount = async () => {
@@ -49,101 +50,103 @@ function PlaydatePage() {
 
   return (
     <Row className="h-100">
-      
+
       <Col className="py-2 p-0 p-lg-2" lg={8}>
         <Playdate {...playdate.results[0]} setPlaydate={setPlaydate} PlaydatePage />
         <Accordion defaultActiveKey="0">
-      <Card>
-    <Accordion.Toggle as={Card.Header} eventKey="0">
-      Comments!
-    </Accordion.Toggle>
-    <Accordion.Collapse eventKey="0">
-      <Card.Body>
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="0">
+              Comments!
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="0">
+              <Card.Body>
 
-        <Container className={appStyles.Content}> {currentUser ? (
-          <CommentCreateForm
-            user={currentUser.user}
-            playdate_post={id}
-            setPlaydate={setPlaydate}
-            setComments={setComments}
-          />
-        ) : comments.results.length ? (
-          "Comments"
-        ) : null}
-          {comments.results.length ? (
-            <InfiniteScroll
-              children={comments.results.map((comment) => (
-                <Comment
-                  key={comment.id}
-                  {...comment}
-                  setPlaydate_post={setPlaydate}
-                  setComments={setComments}
-                />
-              ))}
-              dataLength={comments.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!comments.next}
-              next={() => fetchMoreData(comments, setComments)}
-            />
+                <Container className={appStyles.Content}> {currentUser ? (
+                  <CommentCreateForm
+                    user={currentUser.user}
+                    playdate_post={id}
+                    setPlaydate={setPlaydate}
+                    setComments={setComments}
+                  />
+                ) : comments.results.length ? (
+                  "Comments"
+                ) : null}
+                  {comments.results.length ? (
+                    <InfiniteScroll
+                      children={comments.results.map((comment) => (
+                        <Comment
+                          key={comment.id}
+                          {...comment}
+                          setPlaydate_post={setPlaydate}
+                          setComments={setComments}
+                        />
+                      ))}
+                      dataLength={comments.results.length}
+                      loader={<Asset spinner />}
+                      hasMore={!!comments.next}
+                      next={() => fetchMoreData(comments, setComments)}
+                    />
 
-          ) : currentUser ? (
-            <span>No comments yet, be the first to comment!</span>
-          ) : (
-            <span>No comments... yet</span>
-          )}
-        </Container>
-        
-        </Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  <Card>
-    <Accordion.Toggle as={Card.Header} eventKey="1">
-      Review!
-    </Accordion.Toggle>
-    <Accordion.Collapse eventKey="1">
-      <Card.Body>
+                  ) : currentUser ? (
+                    <span>No comments yet, be the first to comment!</span>
+                  ) : (
+                    <span>No comments... yet</span>
+                  )}
+                </Container>
 
-        <Container className={appStyles.Content}> {currentUser ? (
-          <ReviewCreateForm
-            user={currentUser.user}
-            playdate_post={id}
-            setPlaydate={setPlaydate}
-            setReviews={setReviews}
-          />
-        ) : reviews.results.length ? (
-          "Reviews"
-        ) : null}
-          {reviews.results.length ? (
-            <InfiniteScroll
-              children={reviews.results.map((review) => (
-                <Review
-                  key={review.id}
-                  {...review}
-                  setPlaydate_post={setPlaydate}
-                  setReviews={setReviews}
-                />
-              ))}
-              dataLength={reviews.results.length}
-              loader={<Asset spinner />}
-              hasMore={!!reviews.next}
-              next={() => fetchMoreData(reviews, setReviews)}
-            />
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card>
+          {hasTakenPlace &&(
+          <Card>
+            <Accordion.Toggle as={Card.Header} eventKey="1">
+              Review!
+            </Accordion.Toggle>
+            <Accordion.Collapse eventKey="1">
+              <Card.Body>
 
-          ) : currentUser ? (
-            <span>No reviews yet, be the first to leave one!</span>
-          ) : (
-            <span>No reviews... yet</span>
-          )}
-        </Container>
-        </Card.Body>
-    </Accordion.Collapse>
-  </Card>
-  </Accordion>
+                <Container className={appStyles.Content}> {currentUser ? (
+                  <ReviewCreateForm
+                    user={currentUser.user}
+                    playdate_post={id}
+                    setPlaydate={setPlaydate}
+                    setReviews={setReviews}
+                  />
+                ) : reviews.results.length ? (
+                  "Reviews"
+                ) : null}
+                  {reviews.results.length ? (
+                    <InfiniteScroll
+                      children={reviews.results.map((review) => (
+                        <Review
+                          key={review.id}
+                          {...review}
+                          setPlaydate_post={setPlaydate}
+                          setReviews={setReviews}
+                        />
+                      ))}
+                      dataLength={reviews.results.length}
+                      loader={<Asset spinner />}
+                      hasMore={!!reviews.next}
+                      next={() => fetchMoreData(reviews, setReviews)}
+                    />
+
+                  ) : currentUser ? (
+                    <span>No reviews yet, be the first to leave one!</span>
+                  ) : (
+                    <span>No reviews... yet</span>
+                  )}
+                </Container>
+              </Card.Body>
+            </Accordion.Collapse>
+          </Card> 
+)}
+        </Accordion>
       </Col>
       <Col lg={4} className="d-none d-lg-block p-0 p-lg-2">
         Popular profiles for desktop
       </Col>
-      </Row>
+    </Row>
   );
 }
 
