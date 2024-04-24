@@ -72,7 +72,6 @@ const Playdate = (props) => {
                     {hasTakenPlace &&
                         <Link to={`/playdate/${id}`}>
                             <i className="fa-solid fa-pen"></i>
-                            Leave a Review
                         </Link>
                     }
                 </div>
