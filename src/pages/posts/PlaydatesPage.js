@@ -89,11 +89,15 @@ function PlaydatesPage({ message, filter = "" }) {
                 <Form
                     className={styles.SearchBar}
                     onSubmit={(event) => event.preventDefault()}
+                    
                 >
+                    <Form.Label htmlFor='searchBar' className={appStyles.VisuallyHidden}>searchbar</Form.Label>
                     <Form.Control
                         value={query}
                         onChange={(event) => setQuery(event.target.value)}
                         type="text"
+                        name="searchBar"
+                        id="searchBar"
                         className="mr-sm-2"
                         placeholder="Search posts"
                     />

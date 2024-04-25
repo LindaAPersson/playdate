@@ -273,7 +273,77 @@ The performance score for the website is affected by third-party cookies. But I 
 ![coookies](documentation/testing/lighthouse/cookies.png)
 
 ## WAVE
+<details>
+<summary> Home
+</summary>
 
+![home](documentation/testing/wave/home.png)
+</details>
+
+<details>
+<summary> Contact
+</summary>
+
+![Contact](documentation/testing/wave/contact.png)
+</details>
+
+<details>
+<summary> My playdates
+</summary>
+
+![My playdates](documentation/testing/wave/myPlaydates.png)
+</details>
+
+<details>
+<summary> Add Playdate
+</summary>
+Add Playdate with no errors:
+
+![addWave](documentation/testing/wave/addPlaydate.png)
+Add Playdate code with no errors:
+![addCode](documentation/testing/wave/AddPlaydate%20codeGood.png)
+Add Playdate with errors:
+![adderror](documentation/testing/wave/addPlaydateError.png)
+Add Playdate code with errors:
+![addCodeError](documentation/testing/wave/addPlaydatecodeError.png)
+</details>
+
+
+<details>
+<summary> Edit Playdate
+</summary>
+Edit Playdate with no errors:
+
+![editWave](documentation/testing/wave/editGood.png)
+Edit Playdate code with no errors:
+![editCode](documentation/testing/wave/editCodeGood%20.png)
+Edit Playdate with errors:
+![editWaveError](documentation/testing/wave/editError.png)
+Edit Playdate code with errors:
+![editCodeError](documentation/testing/wave/editCodeError%20.png)
+</details>
+
+<details>
+<summary> Comments / Reviews
+</summary>
+
+![Comments / Reviews](documentation/testing/wave/commentReview.png)
+</details>
+
+<details>
+<summary> Sign in
+</summary>
+
+![signin](documentation/testing/wave/signIn.png)
+</details>
+
+<details>
+<summary> Sign up
+</summary>
+Desktop
+
+![Signup](documentation/testing/wave/signUp.png)
+</details>
 
 
 ## Feature Testing

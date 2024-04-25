@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import appStyle from "../../App.module.css"
 
 function ReviewCreateForm(props) {
     const { playdate_post, setPlaydate_post, setReviews } = props;
@@ -65,12 +66,14 @@ function ReviewCreateForm(props) {
 
     return (
         <Form className="mt-2" onSubmit={handleSubmit}>
-            <Form.Group>
-                <InputGroup>
+            <Form.Group >
+            <Form.Label htmlFor="comment" className={appStyle.VisuallyHidden}>My review</Form.Label>
+                <InputGroup >
                 <Form.Control
                         className={styles.Form}
                         placeholder="My review..."
                         name="comment"
+                        id="comment"
                         as="textarea"
                         value={comment}
                         onChange={handleChange}
@@ -79,23 +82,27 @@ function ReviewCreateForm(props) {
                 </InputGroup>
             </Form.Group>
             <Form.Group>
+            
                 <InputGroup>
                     <Form.Check
                         className={styles.Form}
                         type="checkbox"
                         label="Did you attend the playdate?"
                         name="attendance"
+                        id="attendance"
                         checked={attendance}
                         onChange={handleChange}
                     />
                 </InputGroup>
             </Form.Group>
             <Form.Group>
+            <Form.Label htmlFor="bring_this" className={appStyle.VisuallyHidden}>bring_this</Form.Label>
                 <InputGroup>
                     <Form.Control
                         className={styles.Form}
                         placeholder="Bring this..."
                         name="bring_this"
+                        id="bring_this"
                         type="text"
                         value={bring_this}
                         onChange={handleChange}
@@ -103,11 +110,13 @@ function ReviewCreateForm(props) {
                 </InputGroup>
             </Form.Group>
             <Form.Group>
+            <Form.Label htmlFor="age_recommendation" className={appStyle.VisuallyHidden}>age_recommendation</Form.Label>
                 <InputGroup>
                     <Form.Control
                         className={styles.Form}
                         placeholder="What age group would you recommend?"
                         name="age_recommendation"
+                        id="age_recommendation"
                         type="text"
                         value={age_recommendation}
                         onChange={handleChange}

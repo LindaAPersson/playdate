@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/CommentCreateEditForm.module.css";
+import appStyle from "../../App.module.css"
 
 function CommentEditForm(props) {
   const { id, content, setShowEditForm, setComments } = props;
@@ -39,9 +40,11 @@ function CommentEditForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group className="pr-1">
+      <Form.Label htmlFor="comments" className={appStyle.VisuallyHidden}>comments</Form.Label>
         <Form.Control
           className={styles.Form}
           as="textarea"
+          id="comments"
           value={formContent}
           onChange={handleChange}
           rows={2}

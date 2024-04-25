@@ -263,7 +263,7 @@ function PlaydatesEditForm() {
                         <Form.Group className="text-center">
                             
                                     <figure>
-                                        <Image className={appStyles.Image} src={image} rounded />
+                                        <Image className={appStyles.Image} src={image} rounded alt="users selected image"/>
                                     </figure>
                                     <div>
                                         <Form.Label
@@ -274,10 +274,12 @@ function PlaydatesEditForm() {
                                         </Form.Label>
                                     </div>
                                     <Form.Group className={`${styles.defultImg} text-left`}>
-                                <Form.Label className="text-left">Select Default Image:</Form.Label>
+                                
+                                <Form.Label className="text-left" htmlFor='DefaultImage'>Select Default Image:</Form.Label>
                                 
                                     <Form.Control
                                         type="checkbox"
+                                        id='DefaultImage'
                                         value={selectedDefaultImage}
                                         onChange={handleDefaultImageChange}
                                     >
@@ -300,7 +302,9 @@ function PlaydatesEditForm() {
                     </Container>
                 </Col>
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={appStyles.Content}>{textFields}</Container>
+                    <Container className={appStyles.Content}>
+                    {textFields}
+                    </Container>
                 </Col>
             </Row>
         </Form>

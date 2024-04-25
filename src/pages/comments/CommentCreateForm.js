@@ -3,6 +3,7 @@ import Form from "react-bootstrap/Form";
 import InputGroup from "react-bootstrap/InputGroup";
 import styles from "../../styles/CommentCreateEditForm.module.css";
 import { axiosRes } from "../../api/axiosDefaults";
+import appStyle from "../../App.module.css"
 
 function CommentCreateForm(props) {
   const { playdate_post, setPlaydate_post, setComments } = props;
@@ -41,11 +42,13 @@ function CommentCreateForm(props) {
   return (
     <Form className="mt-2" onSubmit={handleSubmit}>
       <Form.Group>
+      <Form.Label htmlFor="comments" className={appStyle.VisuallyHidden}>comments</Form.Label>
         <InputGroup>
           <Form.Control
             className={styles.Form}
             placeholder="my comment..."
             as="textarea"
+            id="comments"
             value={content}
             onChange={handleChange}
             rows={2}

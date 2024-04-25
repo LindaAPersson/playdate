@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 import { axiosRes } from "../../api/axiosDefaults";
 import styles from "../../styles/ReviewCreateEditForm.module.css";
+import appStyle from "../../App.module.css"
 
 function ReviewEditForm(props) {
   const { id, comment, attendance, bring_this, age_recommendation,
@@ -55,11 +56,12 @@ function ReviewEditForm(props) {
   return (
     <Form onSubmit={handleSubmit}>
       <Form.Group>
-
+      <Form.Label htmlFor="comment" className={appStyle.VisuallyHidden}>My review</Form.Label>
         <Form.Control
           className={styles.Form}
           placeholder="my review..."
           name="comment"
+          id="comment"
           as="textarea"
           value={formContent.comment}
           onChange={handleChange}
@@ -68,23 +70,25 @@ function ReviewEditForm(props) {
 
       </Form.Group>
       <Form.Group>
-
+      
         <Form.Check
           className={styles.Checkbox}
           type="checkbox"
           label="Attendance"
           name="attendance"
+
           checked={formContent.attendance}
           onChange={handleChangeCheckbox}
         />
 
       </Form.Group>
       <Form.Group>
-
+      <Form.Label htmlFor="bring_this" className={appStyle.VisuallyHidden}>bring_this</Form.Label>
         <Form.Control
           className={styles.Form}
           placeholder="bring this..."
           name="bring_this"
+          id="bring_this"
           type="text"
           value={formContent.bring_this}
           onChange={handleChange}
@@ -92,11 +96,12 @@ function ReviewEditForm(props) {
 
       </Form.Group>
       <Form.Group>
-
+      <Form.Label htmlFor="age_recommendation" className={appStyle.VisuallyHidden}>age_recommendation</Form.Label>
         <Form.Control
           className={styles.Form}
           placeholder="suitable age..."
           name="age_recommendation"
+          id="age_recommendation"
           type="text"
           value={formContent.age_recommendation}
           onChange={handleChange}
