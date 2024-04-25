@@ -42,28 +42,28 @@ The webpage was tested on different webbrowsers to ensur a good experience for t
 <summary> Safari
 </summary>
 
-![safari](documentation/readme_img/safari.png)
+![safari](documentation/testing/browser/safari.png)
 </details>
 
 <details>
 <summary> Google chrome
 </summary>
 
-![gogglechrome](documentation/readme_img/gogglechrome.png)
+![gogglechrome](documentation/testing/browser/googleChrome.png)
 </details>
 
 <details>
 <summary> Iphone
 </summary>
 
-![iphone11](documentation/readme_img/iphone11.PNG)
+![iphone11](documentation/testing/browser/iphone.PNG)
 </details>
 
 <details>
 <summary> Samsung galaxy s22
 </summary>
 
-![samsunggalaxy](documentation/readme_img/samsunggalaxy.png)
+![samsunggalaxy](documentation/testing/browser/samsungGalaxy.JPG)
 </details>
 
 ## Code Validation
@@ -175,115 +175,15 @@ The webpage was tested on different webbrowsers to ensur a good experience for t
 ![SignInUpForm.module.css](documentation/testing/css/signInUpForm.png)
 </details>
 
-### JavaScript
-
-I utilized Materialize for styling and effects, so much of the JavaScript code is derived from their pre-made templates.
+### ESLint
 
 <details>
-<summary> script.js
+<summary> ESLint
 </summary>
 
-![script.js](documentation/validation/jshint/jshint_script.png)
+![script.js](documentation/testing/eslint/eslint.png)
 </details>
 
-<details>
-<summary> comments.js
-</summary>
-
-![comments.js](documentation/validation/jshint/jshint_comments.png)
-</details>
-
-<details>
-<summary> jokes.js
-</summary>
-
-![jokes.js](documentation/validation/jshint/jshint_jokes.png)
-</details>
-
-### Python
-
-#### About
-
-<details>
-<summary> Admin
-</summary>
-
-![Admin](documentation/validation/pythonlinter/about_admin.png)
-</details>
-
-<details>
-<summary> Models
-</summary>
-
-![Models](documentation/validation/pythonlinter/about_models.png)
-</details>
-
-<details>
-<summary> Urls
-</summary>
-
-![Urls](documentation/validation/pythonlinter/about_url.png)
-</details>
-
-<details>
-<summary> Views
-</summary>
-
-![Views](documentation/validation/pythonlinter/about_views.png)
-</details>
-
-#### Home
-
-<details>
-<summary> Urls
-</summary>
-
-![Urls](documentation/validation/pythonlinter/home_url.png)
-</details>
-
-<details>
-<summary> Views
-</summary>
-
-![Views](documentation/validation/pythonlinter/home_views.png)
-</details>
-
-#### The Jokes
-
-<details>
-<summary> Admin
-</summary>
-
-![Admin](documentation/validation/pythonlinter/jokes_admin.png)
-</details>
-
-<details>
-<summary> Forms
-</summary>
-
-![Forms](documentation/validation/pythonlinter/jokes_forms.png)
-</details>
-
-<details>
-<summary> Models
-</summary>
-
-![Models](documentation/validation/pythonlinter/jokes_models.png)
-</details>
-
-<details>
-<summary> Urls
-</summary>
-
-![Urls](documentation/validation/pythonlinter/jokes_url.png)
-</details>
-
-<details>
-<summary> Views
-</summary>
-
-![Views](documentation/validation/pythonlinter/jokes_views.png)
-</details>
 
 ## Lighthouse Report
 
