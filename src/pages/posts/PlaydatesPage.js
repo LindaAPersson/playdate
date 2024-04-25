@@ -154,7 +154,7 @@ function PlaydatesPage({ message, filter = "" }) {
 
             </Col>
             <Col md={4} className="d-none d-lg-block p-0 p-lg-2">
-                <Image className={styles.Image} src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713950941/calendar-8584340_1280_hzmvms.png'/>
+                <Image className={styles.Image} src='https://res.cloudinary.com/dnjxdpdic/image/upload/v1713950941/calendar-8584340_1280_hzmvms.png' alt="image of calender"/>
             </Col>
         </Row >
     );
