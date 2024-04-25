@@ -187,66 +187,16 @@ The webpage was tested on different webbrowsers to ensur a good experience for t
 
 ## Lighthouse Report
 
-Under every category, there are two screenshots provided: one tailored for desktop viewing and another optimized for mobile devices. This dual presentation ensures that users can visualize the interface across different screen sizes, enhancing their understanding of the layout and design responsiveness. 
+Under every category, there are two screenshots provided: one tailored for desktop viewing and another optimized for mobile devices. 
 
 <details>
 <summary> Home
 </summary>
 Desktop
 
-![home_desktop](documentation/lighthouse_report/home_desktop.png)
+![home_desktop](documentation/testing/lighthouse/homeDesktop.png)
 Mobile
-![home_mobile](documentation/lighthouse_report/home_mobile.png)
-</details>
-
-<details>
-<summary> Jokes
-</summary>
-Desktop
-
-![jokes_desktop](documentation/lighthouse_report/jokes_desktop.png)
-Mobile
-![jokes_mobile](documentation/lighthouse_report/jokes_mobile.png)
-</details>
-
-<details>
-<summary> Jokes detail
-</summary>
-Desktop
-
-![jokesdetail_desktop](documentation/lighthouse_report/jokedetail_desktop.png)
-Mobile
-![jokesdetail_mobile](documentation/lighthouse_report/jokedetail_mobile.png)
-</details>
-
-<details>
-<summary> Add Jokes
-</summary>
-Desktop
-
-![add_desktop](documentation/lighthouse_report/add_desktop.png)
-Mobile
-![add_mobile](documentation/lighthouse_report/add_mobile.png)
-</details>
-
-<details>
-<summary> Edit Jokes
-</summary>
-Desktop
-
-![edit_desktop](documentation/lighthouse_report/edit_desktop.png)
-Mobile
-![edit_mobile](documentation/lighthouse_report/edit_mobile.png)
-</details>
-
-<details>
-<summary> Category
-</summary>
-Desktop
-
-![category_desktop](documentation/lighthouse_report/category_desktop.png)
-Mobile
-![category_mobile](documentation/lighthouse_report/category_mobile.png)
+![home_mobile](documentation/testing/lighthouse/homeMobile.png)
 </details>
 
 <details>
@@ -254,40 +204,77 @@ Mobile
 </summary>
 Desktop
 
-![contact_desktop](documentation/lighthouse_report/contact_desktop.png)
+![Contact_desktop](documentation/testing/lighthouse/contactDesktop.png)
 Mobile
-![contact_mobile](documentation/lighthouse_report/contact_mobile.png)
+![Contact_mobile](documentation/testing/lighthouse/contactMobile.png)
 </details>
 
 <details>
-<summary> Login
+<summary> My playdates
 </summary>
 Desktop
 
-![login_desktop](documentation/lighthouse_report/login_desktop.png)
+![My playdates_desktop](documentation/testing/lighthouse/myplaydateDesktop.png)
 Mobile
-![login_mobile](documentation/lighthouse_report/login_mobile.png)
+![My playdates_mobile](documentation/testing/lighthouse/myplaydateMobile.png)
 </details>
 
 <details>
-<summary> Logout
+<summary> Add Playdate
 </summary>
 Desktop
 
-![logout_desktop](documentation/lighthouse_report/logout_desktop.png)
+![add_desktop](documentation/testing/lighthouse/addPlaydateDesktop.png)
 Mobile
-![logout_mobile](documentation/lighthouse_report/logout_mobile.png)
+![add_mobile](documentation/testing/lighthouse/addPlaydateMobile.png)
 </details>
 
 <details>
-<summary> Register
+<summary> Edit Playdate
 </summary>
 Desktop
 
-![sigup_desktop](documentation/lighthouse_report/signup_desktop.png)
+![edit_desktop](documentation/testing/lighthouse/editPlaydateDesktop.png)
 Mobile
-![sigup_mobile](documentation/lighthouse_report/sigup_mobile.png)
+![edit_mobile](documentation/testing/lighthouse/editPlaydateMobile.png)
 </details>
+
+<details>
+<summary> Comments / Reviews
+</summary>
+Desktop
+
+![Comments / Reviews_desktop](documentation/testing/lighthouse/reviewCommentDesktop.png)
+Mobile
+![Comments / Reviews_mobile](documentation/testing/lighthouse/reviewCommentsMobile.png)
+</details>
+
+<details>
+<summary> Sign in
+</summary>
+Desktop
+
+![signin_desktop](documentation/testing/lighthouse/signInDesktop.png)
+Mobile
+![signin_mobile](documentation/testing/lighthouse/signInMobile.png)
+</details>
+
+<details>
+<summary> Sign up
+</summary>
+Desktop
+
+![Signup_desktop](documentation/testing/lighthouse/signUpDesktop.png)
+Mobile
+![Signup_mobile](documentation/testing/lighthouse/signUpMobile.png)
+</details>
+
+The performance score for the website is affected by third-party cookies. But I don't have the knowledge to fix the issue. 
+![coookies](documentation/testing/lighthouse/cookies.png)
+
+## WAVE
+
+
 
 ## Feature Testing
 
