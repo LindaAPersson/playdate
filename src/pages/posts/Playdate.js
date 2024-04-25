@@ -64,12 +64,12 @@ const Playdate = (props) => {
                     )}
                 </div>
                 <div className={styles.PostBar}>
-                    <Link to={`/playdate/${id}`}>
+                    <Link to={`/playdate/${id}`} aria-label="Comments">
                         <i className="far fa-comments" />
                     </Link>
                     {comments_count}
                     {hasTakenPlace &&
-                        <Link to={`/playdate/${id}`}>
+                        <Link to={`/playdate/${id}`} aria-label="Reviews">
                             <i className="fa-solid fa-pen"></i>
                         </Link>
                     }
