@@ -71,10 +71,108 @@ The webpage was tested on different webbrowsers to ensur a good experience for t
 ### CSS
 
 <details>
-<summary> Custom CSS/style.css
+<summary> App.module.css
 </summary>
 
-![style.css](documentation/validation/w3jigsaw/style.png)
+![App.module.css](documentation/testing/css/app.png)
+</details>
+
+<details>
+<summary> Asset.module.css
+</summary>
+
+![Asset.module.css](documentation/testing/css/asset.png)
+</details>
+
+<details>
+<summary> Button.module.css
+</summary>
+
+![Button.module.css](documentation/testing/css/button.png)
+</details>
+
+<details>
+<summary> Comment.module.css
+</summary>
+
+![Comment.module.css](documentation/testing/css/comment.png)
+</details>
+
+<details>
+<summary> CommentCreateEditForm.module.css
+</summary>
+
+![CommentCreateEditForm.module.css](documentation/testing/css/commentCreateEditForm.png)
+</details>
+
+<details>
+<summary> index.css
+</summary>
+
+![index.css](documentation/testing/css/index.png)
+</details>
+
+<details>
+<summary> MoreDropdown.module.css
+</summary>
+
+![MoreDropdown.module.css](documentation/testing/css/moreDropdown.png)
+</details>
+
+<details>
+<summary> NavBar.module.css
+</summary>
+
+![NavBar.module.css](documentation/testing/css/navbar.png)
+</details>
+
+<details>
+<summary> NotFound.module.css
+</summary>
+
+![NotFound.module.css](documentation/testing/css/notFound.png)
+</details>
+
+<details>
+<summary> Playdate.module.css
+</summary>
+
+![Playdate.module.css](documentation/testing/css/playdate.png)
+</details>
+
+<details>
+<summary> PlaydateCreateEditForm.module.css
+</summary>
+
+![PlaydateCreateEditForm.module.css](documentation/testing/css/playdateCreateEditForm.png)
+</details>
+
+<details>
+<summary> PlaydatesPage.module.css
+</summary>
+
+![PlaydatesPage.module.css](documentation/testing/css/playdatesPage.png)
+</details>
+
+<details>
+<summary> Review.module.css
+</summary>
+
+![Review.module.css](documentation/testing/css/review.png)
+</details>
+
+<details>
+<summary> ReviewCreateEditForm.module.css
+</summary>
+
+![ReviewCreateEditForm.module.css](documentation/testing/css/reviewCreateEditForm.png)
+</details>
+
+<details>
+<summary> SignInUpForm.module.css
+</summary>
+
+![SignInUpForm.module.css](documentation/testing/css/signInUpForm.png)
 </details>
 
 ### JavaScript
