@@ -418,4 +418,6 @@ Desktop
 * I've encountered a persistent issue that appears in DevTools, which I've been unable to resolve. The problem involves rendering cookies in a cross-site context. Despite numerous attempts to address the issue through troubleshooting and debugging, the root cause remains elusive. Further investigation and collaboration may be necessary to pinpoint and resolve this challenging bug.
 ![Bug](documentation/testing/lighthouse/cookies.png)
 
+WAVE and Forms
+
 * While it's not technically a bug in the code, I'm encountering issues with the loading time of images, which is negatively impacting the performance of the site, as indicated by Lighthouse reports. Unfortunately, I don't have the time to learn how to fix the issue. However, further investigation and optimization strategies are needed to improve image loading performance and overall site performance metrics.

@@ -24,3 +24,7 @@ h5 {
 .bold {
   font-weight: 800;
 }
+
+.PostBar {
+  margin-left: 50px;
+}

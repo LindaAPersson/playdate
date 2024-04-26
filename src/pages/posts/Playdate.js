@@ -63,16 +63,18 @@ const Playdate = (props) => {
                         />
                     )}
                 </div>
-                <div className={styles.PostBar}>
+                <div>
                     <Link to={`/playdate/${id}`}>
                         <i className="far fa-comments" />
                     </Link>
                     {comments_count}
+                    <span >
                     {hasTakenPlace &&
                         <Link to={`/playdate/${id}`} >
-                            <i className="fa-solid fa-pen"></i>
+                            <i className={`fa-solid fa-pen ${styles.PostBar}`}></i>
                         </Link>
                     }
+                    </span>
                 </div>
             </Card.Body>
         </Card>
