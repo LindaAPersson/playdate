@@ -1,70 +1,35 @@
-# Getting Started with Create React App
+# Playdate
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Playdate is an application designed to simplify the process of arranging playdates for parents. As any parent knows, it can often take hours or even days to coordinate schedules and respond to text messages amidst the chaos of daily life. This app aims to alleviate the challenges associated with scheduling playdates, making it easier for parents to connect and organize opportunities for their children to socialize and play together.
 
-## Available Scripts
+![Am I Responsive](documentation/responsiv.png)
 
-In the project directory, you can run:
+Link to live site:
+[Link to playdate](https://playdate-184e33ed70de.herokuapp.com/)
+Link to API:
+[Link to drf-api](https://playdate-drf-api-a577c80fbeb8.herokuapp.com/)
 
-### `npm start`
+## User Experience
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### Project Goals
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The goal for DADJOKES was to create an easy-to-navigate site that users can visit when they lie on the couch watching a bad movie or are on the train during a workday morning. It should be a site where users can get away for a little while.
 
-### `npm test`
+### Agile Methodology
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Agile Methodology was used to help prioritize and organize tasks for the hole webpage. I used Project Boards on Github.
 
-### `npm run build`
+* Epics were written containing possible user stories and based on that the website was made.
+* User stories were created by looking at epics and added on as the project was advancing.
+* Project Board was used to track progression of the task through the Todo, In progress and Done columns
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<details>
+<summary> Userstories / Project board
+</summary>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![issues.png](documentation/readme/userStories/issues.png)
+![projectboard.png](documentation/readme/userStories/kanBan.png)
+</details>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+To see the Epic and user stroies in full: [Project Board](https://github.com/users/LindaAPersson/projects/9).
 
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
