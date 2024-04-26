@@ -27,10 +27,12 @@ function PlaydatesPage({ message, filter = "" }) {
 
     const handleStartDateChange = (date) => {
         setStartDate(date);
+        setHasLoaded(false);
     };
 
     const handleEndDateChange = (date) => {
         setEndDate(date);
+        setHasLoaded(false);
     };
 
     const handleClearDates = () => {
@@ -74,7 +76,6 @@ function PlaydatesPage({ message, filter = "" }) {
                 queryParams.append('end_date', endDate);
             }
             setHasLoaded(false);
-            console.log('Query parameters:', queryParams.toString());
             const { data } = await axiosReq.get(`/playdate/?${filter}&${queryParams}`);
             setPlaydates(data);
             setHasLoaded(true);
