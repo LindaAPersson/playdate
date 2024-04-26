@@ -58,3 +58,43 @@ While planning this site, I sat down with pen and paper and sketched out the out
 
 #### Fonts
 Google Fonts were implemented on the website. Latin with sans-serif as fallback was used thoughout the site to ensure high legibility of the content.
+
+## Features
+
+### Future Features
+
+## Technologies Used
+
+### Languages
+* HTML
+* CSS
+* Javascript
+    - React (17.0.2)
+
+### Libraries, frameworks and dependencies
+* Axios - axios were used for promise-based HTTP. 
+* JWT - library to decode out JSON Web token. 
+* React 17 - JavaScript library for building user interfaces
+* React-Bootstrap 4.6 
+* React Infinite Scroll 
+* React Router - used for dynamic routing. 
+
+### Tools & Programs
+* Am I Responsive was used to create the multi-device mock-up at the top of this README.md file
+* Chrome dev tools was used for debugging of the code and checking site for responsiveness
+* Cloudinary to store static files
+* Favicon.io for making the site favicon
+* Font Awesome - Icons from Font Awesome were used throughout the site
+* Google Fonts 
+* Git was used for version control within VSCode to push the code to GitHub
+* GitHub was used as a remote repository to store project code
+* Gitpod was used to host a virtual workspace
+* Heroku Platform was used to deploy the project into live environment
+
+### Validation:
+* Jigsaw W3 Validator was used to validate the css
+* ESLint used to validate JSX code
+* Lighthouse used to validate performance, accessibility, best practice and SEO of the app
+* Wave - used to evaluate application accessibility
+
+See all the results in [tsting](TESTING.md)
