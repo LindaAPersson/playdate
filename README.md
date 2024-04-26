@@ -9,13 +9,11 @@ Link to live site:
 Link to API:
 [Link to drf-api](https://playdate-drf-api-a577c80fbeb8.herokuapp.com/)
 
-## User Experience
-
-### Project Goals
+## Project Goals
 
 The goal for DADJOKES was to create an easy-to-navigate site that users can visit when they lie on the couch watching a bad movie or are on the train during a workday morning. It should be a site where users can get away for a little while.
 
-### Agile Methodology
+## Agile Methodology
 
 Agile Methodology was used to help prioritize and organize tasks for the hole webpage. I used Project Boards on Github.
 
@@ -33,3 +31,14 @@ Agile Methodology was used to help prioritize and organize tasks for the hole we
 
 To see the Epic and user stroies in full: [Project Board](https://github.com/users/LindaAPersson/projects/9).
 
+## User Experience
+
+### User Stories
+#### First time user
+As a first-time user of Playdate, I have specific expectations regarding the website's usability and functionality. Firstly, I want the website to offer intuitive navigation, allowing me to easily explore different sections and quickly locate information about playdates. Clear and organized menus, along with prominent search and filter functionalities, 
+
+#### Registred user
+As a registered user of Playdate, I desire the capability to organize playdates, leave comments and review past playdates. This functionality enables me to actively engage with the content and enhance the community's enjoyment. Additionally, I seek the ability to edit or delete my playdates, comments, and reviews, empowering me to maintain control over my contributions and ensure their accuracy and relevance.
+
+#### None registred user
+As a non-registered user, I anticipate the ability to access and browse all playdates, comments, and reviews available on the Playdate platform. This includes having unrestricted access to view upcoming playdates, read comments left by other users, and peruse reviews of past events. Additionally, I expect the functionality to filter and search for playdates.
