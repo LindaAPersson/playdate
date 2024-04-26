@@ -10,6 +10,7 @@ The deployed website was tested to ensure its responsiveness and adaptability. D
 ![Am I Responsive](documentation/responsiv.png)
 
 Here are screenshots of the responsive design, both as login and not loged in. 
+The site sizes down to 320px and is responsive up to 1920px.
 
 <details>
 <summary> Desktop/Laptop
@@ -269,7 +270,9 @@ Mobile
 ![Signup_mobile](documentation/testing/lighthouse/signUpMobile.png)
 </details>
 
-The performance score for the website is affected by third-party cookies. But I don't have the knowledge to fix the issue. 
+* Running the code using Lighthouse revealed a significantly low performance score. Unfortunately, due to time constraints, i'm unable to dedicate resources to optimizing images and other elements to improve the score.
+
+* The performance score for the website has been noticeably impacted by the presence of third-party cookies. Unfortunately, addressing this issue requires a certain level of expertise and understanding of web development best practices, particularly in managing and optimizing cookie usage. As of now, I lack the necessary knowledge and resources to effectively tackle this challenge.
 ![coookies](documentation/testing/lighthouse/cookies.png)
 
 ## WAVE
@@ -345,6 +348,7 @@ Desktop
 ![Signup](documentation/testing/wave/signUp.png)
 </details>
 
+While reviewing our code in WAVE, we encountered an interesting bug related to the rendering of forms. Initially, when the form was directly included inside the render function, WAVE returned a clean report with no accessibility errors. However, when we refactored the code to define the form within a constant and then called that constant inside the render function, WAVE detected a plethora of accessibility errors.
 
 ## Feature Testing
 
@@ -418,6 +422,6 @@ Desktop
 * I've encountered a persistent issue that appears in DevTools, which I've been unable to resolve. The problem involves rendering cookies in a cross-site context. Despite numerous attempts to address the issue through troubleshooting and debugging, the root cause remains elusive. Further investigation and collaboration may be necessary to pinpoint and resolve this challenging bug.
 ![Bug](documentation/testing/lighthouse/cookies.png)
 
-WAVE and Forms
+* I encountered a bug related to the spinner component on the website. Despite implementing the spinner functionality, it failed to display correctly when adding a date in the date filter, causing confusion and frustration among users. Unfortunately, I don't have the time to investigate that issue further.
 
 * While it's not technically a bug in the code, I'm encountering issues with the loading time of images, which is negatively impacting the performance of the site, as indicated by Lighthouse reports. Unfortunately, I don't have the time to learn how to fix the issue. However, further investigation and optimization strategies are needed to improve image loading performance and overall site performance metrics.
