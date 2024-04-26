@@ -16,7 +16,6 @@ import InfiniteScroll from "react-infinite-scroll-component";
 import { fetchMoreData } from "../../utils/utils";
 
 
-
 function PlaydatesPage({ message, filter = "" }) {
     const [playdates, setPlaydates] = useState({ results: [] });
     const [hasLoaded, setHasLoaded] = useState(false);
@@ -33,6 +32,7 @@ function PlaydatesPage({ message, filter = "" }) {
     const handleEndDateChange = (date) => {
         setEndDate(date);
     };
+
     const handleClearDates = () => {
         setStartDate('');
         setEndDate('');
@@ -73,11 +73,13 @@ function PlaydatesPage({ message, filter = "" }) {
             if (endDate) {
                 queryParams.append('end_date', endDate);
             }
-            const { data } = await axiosReq.get(`/playdate/?${filter}${queryParams}`);
+            setHasLoaded(false);
+            console.log('Query parameters:', queryParams.toString());
+            const { data } = await axiosReq.get(`/playdate/?${filter}&${queryParams}`);
             setPlaydates(data);
             setHasLoaded(true);
         } catch (err) {
-            //console.log(err);
+            console.log(err);
         }
 
     };
@@ -88,8 +90,7 @@ function PlaydatesPage({ message, filter = "" }) {
                 <i className={`fas fa-search ${styles.SearchIcon}`} />
                 <Form
                     className={styles.SearchBar}
-                    onSubmit={(event) => event.preventDefault()}
-                    
+                    onSubmit={(event) => event.preventDefault()}   
                 >
                     <Form.Label htmlFor='searchBar' className={appStyles.VisuallyHidden}>searchbar</Form.Label>
                     <Form.Control
@@ -104,7 +105,7 @@ function PlaydatesPage({ message, filter = "" }) {
 
                 </Form>
                 <Col className="py-2 p-0 p-lg-2 d-flex align-items-centrum" lg={8}>
-                <Form >
+                <Form onSubmit={(event) => event.preventDefault()} >
                     <Form.Group className="mr-3">
                         <Form.Label htmlFor='startDate'>Start Date</Form.Label>
                         <Form.Control
