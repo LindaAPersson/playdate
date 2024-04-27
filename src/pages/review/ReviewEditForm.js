@@ -5,10 +5,11 @@ import styles from "../../styles/ReviewCreateEditForm.module.css";
 import appStyle from "../../App.module.css"
 
 function ReviewEditForm(props) {
+  // Destructure props
   const { id, comment, attendance, bring_this, age_recommendation,
-    setShowEditForm,
-    setReviews } = props;
+    setShowEditForm, setReviews } = props;
 
+  // State variables for form inputs
   const [formContent, setFormContent] = useState(
     {
       comment,
@@ -19,6 +20,7 @@ function ReviewEditForm(props) {
 
   );
 
+  // Function to handle changes in form inputs
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormContent({
@@ -27,6 +29,7 @@ function ReviewEditForm(props) {
     });
   };
 
+  // Function to handle changes in checkbox input
   const handleChangeCheckbox = (event) => {
     const { name, checked } = event.target;
     setFormContent({
@@ -35,6 +38,7 @@ function ReviewEditForm(props) {
     });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
 
@@ -47,6 +51,7 @@ function ReviewEditForm(props) {
           review.id === id ? { ...review, ...formContent, updated_at: "now" } : review
         ),
       }));
+      // Close the edit form
       setShowEditForm(false);
     } catch (err) {
       //console.log(err);

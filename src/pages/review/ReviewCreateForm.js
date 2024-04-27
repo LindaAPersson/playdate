@@ -6,12 +6,15 @@ import { axiosRes } from "../../api/axiosDefaults";
 import appStyle from "../../App.module.css"
 
 function ReviewCreateForm(props) {
+    // Destructure props
     const { playdate_post, setPlaydate_post, setReviews } = props;
+    // State variables for form inputs
     const [comment, setComment] = useState("");
     const [attendance, setAttendance] = useState("");
     const [bring_this, setBring_this] = useState("");
     const [age_recommendation, setAge_recommendation] = useState("");
 
+    // Function to handle changes in form inputs
     const handleChange = (event) => {
         const { name, value, checked } = event.target;
         switch (name) {
@@ -32,6 +35,7 @@ function ReviewCreateForm(props) {
         }
     };
 
+    // Function to handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -42,6 +46,7 @@ function ReviewCreateForm(props) {
                 age_recommendation,
                 playdate_post,
             });
+            // Update reviews state with the new review
             setReviews((prevReviews) => ({
                 ...prevReviews,
                 results: [data, ...prevReviews.results],
@@ -54,7 +59,7 @@ function ReviewCreateForm(props) {
                     },
                 ],
             }));
-            
+            // Reset form input states
             setComment("");
             setAttendance(false);
             setBring_this("");

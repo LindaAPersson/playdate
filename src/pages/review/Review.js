@@ -8,14 +8,18 @@ import ReviewEditForm from "./ReviewEditForm";
 import Card from "react-bootstrap/Card";
 
 const Review = (props) => {
+  // Destructure props
   const { id, user, created_at, comment, attendance, bring_this, age_recommendation,
-    setPlaydate_post,
-    setReviews } = props;
+    setPlaydate_post, setReviews } = props;
 
+  // State for controlling whether to display edit form
   const [showEditForm, setShowEditForm] = useState(false);
+  // Get current user from context
   const currentUser = useCurrentUser();
+  // Check if the current user is the owner of the review
   const is_user = currentUser?.username === user;
 
+  // Function to handle review deletion
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/review/${id}/`);
@@ -54,15 +58,15 @@ const Review = (props) => {
           ) : (
             <Card>
               {attendance !== null && (
-                    <Card.Text><span className={styles.bold}>
-                        Did you attend the playdate? </span>{attendance ? "Yes" : "No"}
-                    </Card.Text>
-                )}
+                <Card.Text><span className={styles.bold}>
+                  Did you attend the playdate? </span>{attendance ? "Yes" : "No"}
+                </Card.Text>
+              )}
               {comment && <Card.Text><span className={styles.bold}>Review: </span>{comment}</Card.Text>}
               {bring_this && <Card.Text><span className={styles.bold}>Do you recommend bringing anything? </span>{bring_this}</Card.Text>}
               {age_recommendation && <Card.Text><span className={styles.bold}>Recommended age group for this playdate? </span>{age_recommendation}</Card.Text>}
-              
-              </Card>
+
+            </Card>
           )}
         </Media.Body>
         {is_user && !showEditForm && (
