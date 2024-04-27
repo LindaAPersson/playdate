@@ -13,7 +13,7 @@ import appStyles from "../../App.module.css";
 import { useHistory } from "react-router-dom/cjs/react-router-dom";
 
 function ContactForm() {
-
+    // State to manage the contact form data
     const [contactData, setContactData] = useState({
         name: "",
         email: "",
@@ -21,11 +21,16 @@ function ContactForm() {
         message: "",
     });
 
+    // Destructuring contact data from state
     const { name, email, subject, message } = contactData;
+    // State to manage form submission errors
     const [errors, setErrors] = useState({});
+    // State to manage success message display
     const [showSuccess, setShowSuccess] = useState(false);
+    // Accessing history object for programmatic navigation
     const history = useHistory();
 
+    // Function to handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
@@ -40,6 +45,7 @@ function ContactForm() {
         }
     };
 
+    // Function to handle changes in form fields
     const handleChange = (event) => {
         setContactData({
             ...contactData,
