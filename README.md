@@ -62,31 +62,36 @@ Google Fonts were implemented on the website. Latin with sans-serif as fallback 
 ## Features
 
 ### Existing Features
-On the entire page, the messages 'signed in as: ...' are visible when the user are signed in, so the user always knows ig theey are signed in or not.
 
-
+An easy-to-navigate navbar that changes icons/features depending on whether the user is signed in or not.
 <details>
 <summary> Navbar
 </summary>
 
 ![Navbar desktop](documentation/readme/features/navbarDesktop.png)
-
 ![Navbar mobile](documentation/readme/features/navbarMobile.png)
 </details>
+<br>
 
+On the entire page, the messages 'signed in as: ...' are visible when the user are signed in, so the user always knows if they are signed in or not.
 <details>
 <summary> Signed in as
 </summary>
 
 ![Signed in as](documentation/readme/features/signInAs.png)
 </details>
+<br>
 
+All playdates are displayed with an image at the top to create a more lively page. All the information on the playdate is placed below the image in a very structured format.
 <details>
 <summary> Playdate
 </summary>
 
 ![Playdate](documentation/readme/features/playdate.png)
 </details>
+<br>
+
+Under the 'My Playdates' tag, a logged-in user can find all their own playdates.
 
 <details>
 <summary> My Playdate
@@ -94,6 +99,11 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 
 ![My playdate](documentation/readme/features/myPlaydates.png)
 </details>
+<br>
+
+Create a playdate: a logged-in user can access the create form through the 'add playdate' option in the navbar. Each playdate can hold an image. If the user doesn't want to add their own image, they can select a default image provided by the site.
+
+Edit a playdate: a logged-in user can edit their own playdate. When they access the edit form (through the three dots at the bottom of a playdate), the form is prepopulated with the information already added.
 
 <details>
 <summary> Create and Edit playdate
@@ -102,6 +112,9 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 ![Create Playdate](documentation/readme/features/createPlaydate.png)
 ![Edit playdate](documentation/readme/features/editPlaydate.png)
 </details>
+<br>
+
+Not logged-in users can read all comments and reviews. But they need to sign in to be able to leave both comments and reviews. To make the comments and reviews easier to navigate, I put them in a 'collapsible' format so that one hides when the other one is displayed. The review option only appears on playdates that have already occurred.
 
 <details>
 <summary> Comment and review
@@ -111,6 +124,9 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 ![Comments](documentation/readme/features/comments.png)
 ![Review](documentation/readme/features/review.png)
 </details>
+<br>
+
+At the moment, there are two different ways to filter the playdates. The first one is through the search bar. If the user types in the search bar, the playdates that match the text (if there are any) will be displayed. The second one is a date filter. The user can select a start date and press the filter button, then all the playdates from that date will appear. The user can also select only an end date and then press the filter button, and all playdates up until that date will appear. Alternatively, the user can select both a start and end date, and press the filter button, then all playdates between those dates will appear. After the desired date search, the user needs to click the 'clear date' button to display all the playdates again.
 
 <details>
 <summary> Filters 
@@ -119,6 +135,9 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 ![Searchbar](documentation/readme/features/searchFilter.png)
 ![Datefilter](documentation/readme/features/dateFilter.png)
 </details>
+<br>
+
+The sign-in page is easy to navigate to through the navbar if the user is not signed in. If the user is not signed in, the navbar won't show the sign-in option (if a signed-in user adds 'signin' in the URL, they will be rerouted to the home page). The sign-in page is easy to understand with one field for a username and one field for the password.
 
 <details>
 <summary> Sign in
@@ -126,6 +145,9 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 
 ![Sign in](documentation/readme/features/signIn.png)
 </details>
+<br>
+
+The sign-up page is easy to navigate to through the navbar if the user is not signed in. If the user is not signed in, the navbar won't show the sign-up option (if a signed-in user adds 'signup' in the URL, they will be rerouted to the home page). The sign-up page is easy to understand with fields for username, creating passwords, and confirming passwords.
 
 <details>
 <summary> Sign up
@@ -133,6 +155,9 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 
 ![Sign up](documentation/readme/features/signUp.png)
 </details>
+<br>
+
+The logout option only appears in the navbar for logged-in users. If they press the button, they are automatically signed out, and a success message appears as they get rerouted to the homepage.
 
 <details>
 <summary> Log out
@@ -140,7 +165,17 @@ On the entire page, the messages 'signed in as: ...' are visible when the user a
 
 ![Log out](documentation/readme/features/singedOut.png)
 </details>
+<br>
 
+All users can fill out a contact form and send it to the organizers of the page. If the message is sent successfully, a success message will appear.
+
+<details>
+<summary> Contact
+</summary>
+
+![Contact form](documentation/readme/features/contact.png)
+![Contact message](documentation/readme/features/contactSuccses.png)
+</details>
 
 ### Future Features
 
