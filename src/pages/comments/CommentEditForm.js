@@ -5,20 +5,25 @@ import styles from "../../styles/CommentCreateEditForm.module.css";
 import appStyle from "../../App.module.css"
 
 function CommentEditForm(props) {
+  // Destructuring props to extract necessary data
   const { id, content, setShowEditForm, setComments } = props;
 
+  // State to manage the content of the form
   const [formContent, setFormContent] = useState(content);
 
+  // Function to handle changes in the content of the form
   const handleChange = (event) => {
     setFormContent(event.target.value);
   };
 
+  // Function to handle submission of the edited comment
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
       await axiosRes.put(`/comments/${id}/`, {
         content: formContent.trim(),
       });
+      // Updating the comments list with the edited comment
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.map((comment) => {
@@ -31,6 +36,7 @@ function CommentEditForm(props) {
             : comment;
         }),
       }));
+      // Closing the edit form after submission
       setShowEditForm(false);
     } catch (err) {
       //console.log(err);

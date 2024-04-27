@@ -11,13 +11,20 @@ const Comment = (props) => {
     setPlaydate_post,
     setComments } = props;
 
+  // State to manage whether the edit form should be displayed
   const [showEditForm, setShowEditForm] = useState(false);
+
+   // Accessing current user from context
   const currentUser = useCurrentUser();
+
+  // Checking if the current user is the owner of the comment
   const is_user = currentUser?.username === user;
 
+  // Function to handle comment deletion
   const handleDelete = async () => {
     try {
       await axiosRes.delete(`/comments/${id}/`);
+      // Updating playdate post's comments count
       setPlaydate_post((prevPlaydate_post) => ({
         results: [
           {
@@ -27,6 +34,7 @@ const Comment = (props) => {
         ],
       }));
 
+      // Updating comments list by removing the deleted comment
       setComments((prevComments) => ({
         ...prevComments,
         results: prevComments.results.filter((comment) => comment.id !== id),

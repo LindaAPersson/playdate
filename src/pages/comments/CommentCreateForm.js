@@ -7,12 +7,16 @@ import appStyle from "../../App.module.css"
 
 function CommentCreateForm(props) {
   const { playdate_post, setPlaydate_post, setComments } = props;
+
+  // State to manage the content of the comment
   const [content, setContent] = useState("");
 
+  // Function to handle changes in the comment input field
   const handleChange = (event) => {
     setContent(event.target.value);
   };
 
+  // Function to handle submission of the comment
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
@@ -20,10 +24,14 @@ function CommentCreateForm(props) {
         content,
         playdate_post,
       });
+
+      // Updating comments list by adding the new comment at the beginning
       setComments((prevComments) => ({
         ...prevComments,
         results: [data, ...prevComments.results],
       }));
+
+      // Updating playdate post's comments count
       setPlaydate_post((prevPlaydate_post) => ({
         results: [
           {
@@ -33,6 +41,7 @@ function CommentCreateForm(props) {
           },
         ],
       }));
+      // Clearing the comment input field after submission
       setContent("");
     } catch (err) {
       //console.log(err);
