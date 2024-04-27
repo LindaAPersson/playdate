@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { CurrentUserProvider } from './contexts/CurrentUserContext';
 
+// Rendering the root component of the application wrapped inside BrowserRouter and CurrentUserProvider
 ReactDOM.render(
 
   <Router>

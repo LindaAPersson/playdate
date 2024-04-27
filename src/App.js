@@ -14,9 +14,8 @@ import { useCurrentUser } from "./contexts/CurrentUserContext";
 import NotFound from "./components/NotFound";
 
 
-
 function App() {
-  const currentUser = useCurrentUser();
+  const currentUser = useCurrentUser(); // Using the useCurrentUser hook to get the current user
 
   return (
     <div className={styles.App}>
