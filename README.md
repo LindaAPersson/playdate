@@ -11,7 +11,7 @@ Link to API:
 
 ## Project Goals
 
-The goal for DADJOKES was to create an easy-to-navigate site that users can visit when they lie on the couch watching a bad movie or are on the train during a workday morning. It should be a site where users can get away for a little while.
+The goal for Playdate was to create an easy-to-navigate site where parents can arrange playdates for their kids. The step between wanting someone to play with and actually arranging the playdate is hopefully much smaller with this site in mind.
 
 ## Agile Methodology
 
@@ -225,7 +225,7 @@ There is a custom 'page not found' message displaying when the user enters an in
 * Lighthouse used to validate performance, accessibility, best practice and SEO of the app
 * Wave - used to evaluate application accessibility
 
-See all the results in [tsting](TESTING.md)
+See all the results in [TESTING.md](TESTING.md)
 
 ## Testing
 Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
@@ -259,3 +259,9 @@ The project was deployed using Heroku, following these steps:
 5. In the "Connect to GitHub" field, search for your repository name and click on the connect button next to the right repository.
 6. Choose between automatic deploys or manual deploys. I chose automatic deploys.
 7. When the app is deployed, a link will appear at the bottom of the page.
+
+## Credit
+* A lot of inspiration was taken from Code Institute's walk-through project moments.
+* To set up a default image in the create playdate and edit playdate, this article helped me understand how to arrange the proper file format. [Article](https://stackoverflow.com/questions/73945065/convert-image-from-url-to-file)
+* Tutor support at Code Institute helped me with the date filter feature. To get that line right wouldn't have taken me a year by myself!
+* My mentor Laure-Nicole deserves the most credit for keeping me on track and helping me plan the project so it actually would be manageable within my short timeframe."
