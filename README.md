@@ -176,6 +176,16 @@ All users can fill out a contact form and send it to the organizers of the page.
 ![Contact form](documentation/readme/features/contact.png)
 ![Contact message](documentation/readme/features/contactSuccses.png)
 </details>
+<br>
+
+There is a custom 'page not found' message displaying when the user enters an invalid URL.
+
+<details>
+<summary> Page not found
+</summary>
+
+![Page not found](documentation/readme/features/pageNotFound.png)
+</details>
 
 ### Future Features
 
@@ -224,4 +234,28 @@ Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
 
 Please see [API README.md](https://github.com/LindaAPersson/playdate_drf_api/blob/main/README.md) for a full overview of the back-end connected to playdate. 
 
-Please see [API README.md](https://github.com/LindaAPersson/playdate_drf_api/blob/main/TESTING.md) for a full overview of the back-end testing connected to playdate. 
+Please see [API TESTING.md](https://github.com/LindaAPersson/playdate_drf_api/blob/main/TESTING.md) for a full overview of the back-end testing connected to playdate. 
+
+## Deployment
+First, I created a new repository on GitHub with the following steps:
+
+1. Log into GitHub.
+2. Go to repository and click on 'New'.
+3. Choose a repository name and create the repository.
+4. Click the Gitpod button to open the new repository in GitPod.
+
+The development environment used for this project was GitPod.
+
+5. Once the IDE has loaded, run the terminal command npx create-react-app . --use-npm to install React.
+6. After it has finished installing run the command npm start to check the app is working.
+7. Git add, commit and push changes to GitHub.
+
+The project was deployed using Heroku, following these steps:
+
+1. Login to Heroku (Create an account if necessary).
+2. Click on "New" in the Heroku dashboard and select "Create new app."
+3. Write a name for the app, choose your region, and click "Create App."
+4. In the deployment tab, select GitHub as the deployment method and confirm your choice.
+5. In the "Connect to GitHub" field, search for your repository name and click on the connect button next to the right repository.
+6. Choose between automatic deploys or manual deploys. I chose automatic deploys.
+7. When the app is deployed, a link will appear at the bottom of the page.
