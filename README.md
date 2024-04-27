@@ -261,7 +261,8 @@ The project was deployed using Heroku, following these steps:
 7. When the app is deployed, a link will appear at the bottom of the page.
 
 ## Credit
-* A lot of inspiration was taken from Code Institute's walk-through project moments.
+* A lot of inspiration was taken from Code Institute's walk-through project moments. That project was instrumental in helping me get started and provided a solid foundation for my own project.
 * To set up a default image in the create playdate and edit playdate, this article helped me understand how to arrange the proper file format. [Article](https://stackoverflow.com/questions/73945065/convert-image-from-url-to-file)
 * Tutor support at Code Institute helped me with the date filter feature. To get that line right wouldn't have taken me a year by myself!
 * My mentor Laure-Nicole deserves the most credit for keeping me on track and helping me plan the project so it actually would be manageable within my short timeframe."
+* The images used throughout the project are from [Pixabay](https://pixabay.com/)

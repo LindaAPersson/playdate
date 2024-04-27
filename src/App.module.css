@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 .App {
   font-family: "DM Sans", sans-serif;
   background-color: #f8f8f8;
@@ -28,10 +32,6 @@
   max-height: 20vh;
   max-width: 100%;
   object-fit: cover;
-}
-
-* {
-  box-sizing: border-box;
 }
 
 a {
