@@ -1,9 +1,10 @@
+/* Styles for the .Owner class */
 .Owner {
     font-weight: bold;
     color: #2142b2;
     margin-right: 8px;
 }
-  
+/* Styles for the .Date class */
 .Date {
     font-weight: lighter;
     color: #c1c1c5;

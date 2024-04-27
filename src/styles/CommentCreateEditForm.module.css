@@ -1,8 +1,10 @@
+/* Styles for the .Form class */
 .Form {
     border: none;
     border-bottom: 2px #00d1ff solid;
 }
-  
+
+/* Styles for the .Button class */
 .Button {
     border: none;
     background-color: #242a3d;
@@ -12,7 +14,8 @@
     min-width: 75px;
     margin: 5px;
 }
-  
+
+/* Styles for hover state of .Button */
 .Button:hover {
     cursor: pointer;
     background-color: aliceblue;

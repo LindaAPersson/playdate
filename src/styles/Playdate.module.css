@@ -1,3 +1,4 @@
+/* Styles for the Playdate */
 .Post {
   border: 1px solid #68CEC6;
   border-radius: 2px;
@@ -5,26 +6,30 @@
   text-align: center;
 }
 
+/* Styles for figure and h5 within Playdate */
 .Post figure,
 h5 {
   margin: 0 0;
 }
 
+/* Styles for the Content */
 .Content {
-
   border: 2px solid #68CEC6;
   margin: 2px;
   padding: 5px;
 }
 
+/* Styles for the createdAt class */
 .createdAt {
   font-size: small;
 }
 
+/* Styles for bold text */
 .bold {
   font-weight: 800;
 }
 
+/* Styles for the PostBar */
 .PostBar {
   margin-left: 50px;
 }

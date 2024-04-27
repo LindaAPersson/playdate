@@ -1,7 +1,9 @@
+/* Universal box-sizing */
 * {
   box-sizing: border-box;
 }
 
+/* Styles for the App class */
 .App {
   font-family: "DM Sans", sans-serif;
   background-color: #f8f8f8;
@@ -11,10 +13,12 @@
   background-position: center;
 }
 
+/* Styles for the Main class */
 .Main {
   padding-top: 81px;
 }
 
+/* Styles for the Content class */
 .Content {
   background-color: #ffffff;
   padding: 10px;
@@ -22,34 +26,40 @@
   border: 1px solid #dadadf;
 }
 
+/* Styles for the FillerImage class */
 .FillerImage {
   object-fit: cover;
   height: 100%;
   width: 100%;
 }
 
+/* Styles for the Image class */
 .Image {
   max-height: 20vh;
   max-width: 100%;
   object-fit: cover;
 }
 
+/* Styles for anchor tags */
 a {
   color: #555555;
   transition: color ease-in-out 0.3s;
   vertical-align: middle;
 }
 
+/* Styles for anchor tags on hover */
 a:hover {
   text-decoration: none;
   color: #68CEC6;
 }
 
+/* Styles for anchor tags' child icons on hover */
 a:hover i {
   color: #68CEC6;
   transition: color ease-in-out 0.3s;
 }
 
+/* Styles for icons */
 i {
   color: #cfced3;
   font-size: 1.3rem;
@@ -57,12 +67,14 @@ i {
   vertical-align: middle;
 }
 
+/* Styles for icons on hover */
 i:hover {
   cursor: pointer;
   transition: color ease-in-out 0.3s;
   color: #68CEC6;
 }
 
+/* Styles for figures */
 figure {
   text-align: center;
   display: inline-block;
@@ -85,6 +97,7 @@ figure {
   background: #555;
 }
 
+/* Styles for visually hidden elements */
 .VisuallyHidden {
   position: absolute;
   width: 1px;

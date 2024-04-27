@@ -1,9 +1,11 @@
+/* Styles for the .DropdownItem class */
 .DropdownItem {
     display: inline-block;
     max-width: 50%;
     padding: 0px;
 }
-  
+
+/* Styles for the .Absolute class */
 .Absolute {
     position: absolute;
     right: 0;

@@ -1,3 +1,4 @@
+/* Styles for the .Button class */
 .Button {
   font-size: 0.8rem;
   align-self: center;
@@ -9,29 +10,35 @@
   min-width: 75px;
 }
 
+/* Hover effect for .Button */
 .Button:hover {
   opacity: 0.8;
   border-color: transparent;
   cursor: pointer;
 }
 
+/* Active state for .Button when hovered */
 .Button:hover:active {
   background-color: #2142b2 !important;
 }
 
+/* Active state for .Button */
 .Button:active {
   background-color: #2142b2 !important;
 }
 
+/* Focus state for .Button */
 .Button:focus {
   background-color: #2142b2;
 }
 
+/* Wide variant of the .Button */
 .Wide {
   padding: 10px 50px;
   width: 100%;
 }
 
+/* Styles for .Button with blue background */
 .Blue,
 .BlueOutline:hover,
 .Bright:hover {
@@ -39,35 +46,34 @@
   color: #000000;
 }
 
+/* Styles for .Button with blue outline */
 .BlueOutline,
 .Blue:hover {
-  /* border: 1px solid #2142b2; */
   background-color: #ffffff;
   color: #2142b2;
 }
 
+/* Styles for .Button with black background */
 .Black,
 .BlackOutline:hover {
-  /* background-color: #242a3d;
-    color: white; */
   background-color: #242a3d;
   color: aliceblue;
 }
 
+/* Styles for .Button with black outline */
 .Black:hover,
 .BlackOutline {
-  /* background-color: #dadadf;
-    color: #242a3d;
-    border-color: #242a3d; */
   background-color: aliceblue;
   color: #242a3d;
 }
 
+/* Styles for .Button with bright background */
 .Bright {
   background-color: #68cec6;
   color: #000000;
 }
 
+/* Styles for filter button */
 .Filterbutton {
   background-color: #e3b8e1;
   color: #000000;

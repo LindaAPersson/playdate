@@ -1,12 +1,15 @@
+/* Styles for the Container */
 .Container {
     min-height: 343px;
     max-height: 700px;
 }
 
+/* Styles for the default image */
 .defultImg {
     font-size: small;
 }
 
+/* Styles for the input within defultImg */
 .defultImg input {
     width: 15px;
     height: 15px;

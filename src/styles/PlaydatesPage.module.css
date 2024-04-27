@@ -1,10 +1,12 @@
+/* Styles for the input within SearchBar */
 .SearchBar input {
     border-radius: 20px;
     color: #242a3d;
     padding-left: 40px;
     margin-bottom: 16px;
 }
-  
+ 
+/* Styles for the SearchIcon */
 .SearchIcon {
     position: absolute;
     font-size: 1.2rem;
@@ -12,11 +14,13 @@
     padding-left: 15px;
 }
   
+/* Styles for SearchIcon on hover */
 .SearchIcon:hover {
     cursor: default;
     color: #cfced3;
 }
 
+/* Styles for the Image */
 .Image {
     width: 20vw;
 }

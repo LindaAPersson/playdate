@@ -1,7 +1,9 @@
+/* Styles for the Row class */
 .Row {
   height: calc(100vh - 81px);
 }
 
+/* Styles for the Input class */
 .Input {
   background: #ffffff;
   border: 1px solid #f0f1f9;
@@ -12,6 +14,7 @@
   padding: 10px;
 }
 
+/* Styles for the Header class */
 .Header {
   font-style: normal;
   font-weight: bold;
@@ -23,6 +26,7 @@
   color: #000000;
 }
 
+/* Styles for the Link class */
 .Link {
   text-decoration: none;
   text-align: center;
@@ -30,18 +34,22 @@
   margin: auto;
 }
 
+/* Styles for the Link span */
 .Link span {
   color: #ff9254;
 }
 
+/* Styles for the Container class */
 .Container {
   padding: 30px 10px;
 }
 
+/* Styles for the SignInCol class */
 .SignInCol {
   height: 320px;
 }
 
+/* Styles for the SignUpCol class */
 .SignUpCol {
   height: 375px;
 }

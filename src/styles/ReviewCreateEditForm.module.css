@@ -1,12 +1,16 @@
+/* Styles for the Form class */
 .Form {
     border: none;
     border-bottom: 2px #e7df00 solid;
 }
 
+/* Styles for the Checkbox input */
 .Checkbox input {
     width: 15px;
     height: 15px;
 }
+
+/* Styles for the Button class */
 .Button {
     border: none;
     background-color: #242a3d;
@@ -17,6 +21,7 @@
     margin: 5px;
 }
   
+/* Hover styles for the Button class */
 .Button:hover {
     cursor: pointer;
     background-color: aliceblue;

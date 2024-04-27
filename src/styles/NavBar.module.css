@@ -1,12 +1,15 @@
+/* Styles for the NavBar */
 .NavBar {
   background-color: #ffffff;
   border: 1px solid #dadadf;
 }
 
+/* Styles for the NavLink */
 .NavLink {
   padding: 5px;
 }
 
+/* Styles for the Active class */
 .Active i {
   color: #68CEC6;
 }
