@@ -20,12 +20,16 @@ const SignUpForm = () => {
     password1: "",
     password2: "",
   });
+  // State to manage sign-up form data
   const { username, password1, password2 } = signUpData;
 
+  // State to manage form errors
   const [errors, setErrors] = useState({});
 
+  // Accessing history object from react-router-dom
   const history = useHistory();
 
+  // Function to handle form input changes
   const handleChange = (event) => {
     setSignUpData({
       ...signUpData,
@@ -33,6 +37,7 @@ const SignUpForm = () => {
     });
   };
 
+  // Function to handle form submission
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
