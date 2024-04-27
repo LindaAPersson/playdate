@@ -20,14 +20,19 @@ import Accordion from 'react-bootstrap/Accordion'
 import Card from 'react-bootstrap/Card'
 
 function PlaydatePage() {
+  // Get playdate id from URL
   const { id } = useParams();
+  // State for playdate, comments, and reviews
   const [playdate, setPlaydate] = useState({ results: [] });
-  const currentUser = useCurrentUser();
   const [comments, setComments] = useState({ results: [] });
   const [reviews, setReviews] = useState({ results: [] });
+  // Current user context
+  const currentUser = useCurrentUser();
 
+  // Check if the playdate has taken place
   const hasTakenPlace = playdate.results.length > 0 && new Date(playdate.results[0].date) < new Date();
 
+  // Fetch playdate data and associated comments and reviews
   useEffect(() => {
     const handleMount = async () => {
       try {

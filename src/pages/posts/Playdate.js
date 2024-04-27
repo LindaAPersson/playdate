@@ -19,10 +19,12 @@ const Playdate = (props) => {
     const is_organizer = currentUser?.username === organizer;
     const history = useHistory();
 
+    // Function to handle navigation to the playdate edit page
     const handleEdit = () => {
         history.push(`/playdate/${id}/edit`);
     };
 
+    // Function to handle deletion of a playdate
     const handleDelete = async () => {
         try {
             await axiosRes.delete(`/playdate/${id}/`);
@@ -32,6 +34,7 @@ const Playdate = (props) => {
         }
     };
 
+    // Check if the playdate has already taken place
     const hasTakenPlace = new Date(date) < new Date();
 
     return (

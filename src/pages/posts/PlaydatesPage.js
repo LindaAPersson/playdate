@@ -17,29 +17,37 @@ import { fetchMoreData } from "../../utils/utils";
 
 
 function PlaydatesPage({ message, filter = "" }) {
+    // State for storing playdates data
     const [playdates, setPlaydates] = useState({ results: [] });
+    // State to indicate if playdates have loaded
     const [hasLoaded, setHasLoaded] = useState(false);
+    // Get current location
     const { pathname } = useLocation();
+    // State for query search
     const [query, setQuery] = useState("");
-
+    // State for start date and end date filter
     const [startDate, setStartDate] = useState('');
     const [endDate, setEndDate] = useState('');
 
+    // Handle start date change
     const handleStartDateChange = (date) => {
         setStartDate(date);
         setHasLoaded(false);
     };
 
+    // Handle end date change
     const handleEndDateChange = (date) => {
         setEndDate(date);
         setHasLoaded(false);
     };
 
+    // Handle clearing dates
     const handleClearDates = () => {
         setStartDate('');
         setEndDate('');
     };
 
+    // Fetch playdates based on filter, query, and dates
     useEffect(() => {
         const fetchPlaydate = async () => {
             try {
@@ -53,17 +61,18 @@ function PlaydatesPage({ message, filter = "" }) {
                 //console.log(err);
             }
         };
-
+        // Fetch playdates after a delay to prevent rapid requests while typing
         setHasLoaded(false);
         const timer = setTimeout(() => {
             fetchPlaydate();
         }, 1000);
-
+        // Clear timer on unmount
         return () => {
             clearTimeout(timer);
         };
     }, [filter, query, pathname, startDate, endDate]);
 
+    // Handle filter submit
     const handleFilterSubmit = async () => {
         try {
             const queryParams = new URLSearchParams();

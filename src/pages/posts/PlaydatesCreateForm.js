@@ -16,7 +16,10 @@ import { axiosReq } from "../../api/axiosDefaults";
 import { useRedirect } from "../../hooks/useRedirect";
 
 function PlaydatesCreateForm() {
+    // Hook to redirect if not logged in
     useRedirect("loggedOut")
+
+    // State for form data and errors
     const [errors, setErrors] = useState({});
     const [postData, setPostData] = useState({
         title: "",
@@ -30,11 +33,16 @@ function PlaydatesCreateForm() {
         suitable_age: "",
     });
     const { title, date, location, description, prize, parent_stay_required, image, time, suitable_age, } = postData;
+    // Default image URL
     const defaultImageUrl = 'https://res.cloudinary.com/dnjxdpdic/image/upload/v1712823894/media/images/default_posts_iajkjc.jpg'
+    // Ref for image input
     const imageInput = useRef(null);
+    // History for navigation
     const history = useHistory();
+    // State for selected default image
     const [selectedDefaultImage, setSelectedDefaultImage] = useState("");
 
+    // Handle form input change
     const handleChange = (event) => {
         setPostData({
             ...postData,
@@ -42,6 +50,7 @@ function PlaydatesCreateForm() {
         });
     };
 
+    // Handle checkbox change
     const handleChangeCheckbox = (event) => {
         const { name, checked } = event.target;
         setPostData({
@@ -50,6 +59,7 @@ function PlaydatesCreateForm() {
         });
     };
 
+    // Handle fetching default image
     const handleDefaultImageChange = (event) => {
         fetch(defaultImageUrl)
             .then((res) => res.blob())
@@ -62,6 +72,7 @@ function PlaydatesCreateForm() {
             });
     }
 
+    // Handle image input change
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
@@ -73,10 +84,11 @@ function PlaydatesCreateForm() {
         }
     };
 
+    // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
-
+        // Append form data
         formData.append("title", title);
         formData.append("date", date);
         formData.append("time", time);
@@ -88,6 +100,7 @@ function PlaydatesCreateForm() {
         formData.append("image", imageInput.current.files[0] || selectedDefaultImage);
 
         try {
+            // Send POST request to create playdate
             const { data } = await axiosReq.post("/playdate/", formData);
             history.push(`/playdate/${data.id}`);
         } catch (err) {
@@ -98,17 +111,18 @@ function PlaydatesCreateForm() {
         }
     };
 
+    // JSX for text fields
     const textFields = (
         <div className="text-center">
             <Form.Group controlId='title'>
-                            <Form.Label>Title</Form.Label>
-                            <Form.Control
-                                type="text"
-                                name="title"
-                                value={title}
-                                onChange={handleChange}
-                            />
-                        </Form.Group>
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                    type="text"
+                    name="title"
+                    value={title}
+                    onChange={handleChange}
+                />
+            </Form.Group>
             {errors.title?.map((message, idx) => (
                 <Alert key={idx} variant="warning">
                     {message}
@@ -301,7 +315,7 @@ function PlaydatesCreateForm() {
                 </Col>
 
                 <Col md={5} lg={4} className="d-none d-md-block p-0 p-md-2">
-                    <Container className={appStyles.Content}> 
+                    <Container className={appStyles.Content}>
                         {textFields}
                     </Container>
                 </Col>

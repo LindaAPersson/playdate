@@ -15,8 +15,9 @@ import { useParams } from "react-router-dom/cjs/react-router-dom";
 import { useEffect } from "react";
 
 function PlaydatesEditForm() {
+    // State for form errors
     const [errors, setErrors] = useState({});
-
+    // State for form data
     const [postData, setPostData] = useState({
         title: "",
         date: "",
@@ -28,13 +29,20 @@ function PlaydatesEditForm() {
         time: "", 
         suitable_age: "",
     });
+    // Destructure form data
     const { title, date, location, description, prize, parent_stay_required, image, time, suitable_age, } = postData;
+    // Default image url
     const defaultImageUrl = 'https://res.cloudinary.com/dnjxdpdic/image/upload/v1712823894/media/images/default_posts_iajkjc.jpg'
+    // Ref for image input
     const imageInput = useRef(null);
+    // History hook for navigation
     const history = useHistory();
+    // Params hook to get playdate id from URL
     const { id } = useParams();
+    // State for selected default image
     const [selectedDefaultImage, setSelectedDefaultImage] = useState("");
 
+    // Fetch default image when component mounts
     useEffect(() => {
       const handleMount = async () => {
         try {
@@ -50,6 +58,7 @@ function PlaydatesEditForm() {
       handleMount();
     }, [history, id]);
 
+    // Handle form field changes
     const handleChange = (event) => {
         setPostData({
             ...postData,
@@ -57,6 +66,7 @@ function PlaydatesEditForm() {
         });
     };
 
+    // Fetch default image
     const handleDefaultImageChange = (event) => {
         fetch(defaultImageUrl)
             .then((res) => res.blob())
@@ -69,6 +79,7 @@ function PlaydatesEditForm() {
         });
     }
 
+    // Handle image input change
     const handleChangeImage = (event) => {
         if (event.target.files.length) {
             URL.revokeObjectURL(image);
@@ -79,6 +90,7 @@ function PlaydatesEditForm() {
         }
     };
 
+    // Handle checkbox change
     const handleChangeCheckbox = (event) => {
         const { name, checked } = event.target;
         setPostData({
@@ -87,7 +99,7 @@ function PlaydatesEditForm() {
         });
     };
 
-
+    // Handle form submission
     const handleSubmit = async (event) => {
         event.preventDefault();
         const formData = new FormData();
@@ -115,7 +127,7 @@ function PlaydatesEditForm() {
             }
         }
     };
-
+    // Form fields JSX
     const textFields = (
         <div className="text-center">
             <Form.Group controlId='title'>
