@@ -61,7 +61,90 @@ Google Fonts were implemented on the website. Latin with sans-serif as fallback 
 
 ## Features
 
+### Existing Features
+On the entire page, the messages 'signed in as: ...' are visible when the user are signed in, so the user always knows ig theey are signed in or not.
+
+
+<details>
+<summary> Navbar
+</summary>
+
+![Navbar desktop](documentation/readme/features/navbarDesktop.png)
+
+![Navbar mobile](documentation/readme/features/navbarMobile.png)
+</details>
+
+<details>
+<summary> Signed in as
+</summary>
+
+![Signed in as](documentation/readme/features/signInAs.png)
+</details>
+
+<details>
+<summary> Playdate
+</summary>
+
+![Playdate](documentation/readme/features/playdate.png)
+</details>
+
+<details>
+<summary> My Playdate
+</summary>
+
+![My playdate](documentation/readme/features/myPlaydates.png)
+</details>
+
+<details>
+<summary> Create and Edit playdate
+</summary>
+
+![Create Playdate](documentation/readme/features/createPlaydate.png)
+![Edit playdate](documentation/readme/features/editPlaydate.png)
+</details>
+
+<details>
+<summary> Comment and review
+</summary>
+
+![Icons](documentation/readme/features/commentReview.png)
+![Comments](documentation/readme/features/comments.png)
+![Review](documentation/readme/features/review.png)
+</details>
+
+<details>
+<summary> Filters 
+</summary>
+
+![Searchbar](documentation/readme/features/searchFilter.png)
+![Datefilter](documentation/readme/features/dateFilter.png)
+</details>
+
+<details>
+<summary> Sign in
+</summary>
+
+![Sign in](documentation/readme/features/signIn.png)
+</details>
+
+<details>
+<summary> Sign up
+</summary>
+
+![Sign up](documentation/readme/features/signUp.png)
+</details>
+
+<details>
+<summary> Log out
+</summary>
+
+![Log out](documentation/readme/features/singedOut.png)
+</details>
+
+
 ### Future Features
+
+* One of the exciting future features I envision for the platform is the implementation of a dynamic calendar (where the pink image of a calendar is placed now on desktop view). By clicking on a particular date within the calendar, users would be able to instantly view all relevant playdates scheduled for that day. The calendar feature would enhance the overall user experience by offering a comprehensive overview of upcoming activities. Whether planning ahead for the week or seeking last-minute opportunities to connect with other families, the calendar provides a valuable tool for facilitating social engagement and community interaction on the platform.
 
 ## Technologies Used
 
@@ -69,7 +152,7 @@ Google Fonts were implemented on the website. Latin with sans-serif as fallback 
 * HTML
 * CSS
 * Javascript
-    - React (17.0.2)
+    - React
 
 ### Libraries, frameworks and dependencies
 * Axios - axios were used for promise-based HTTP. 
@@ -98,3 +181,12 @@ Google Fonts were implemented on the website. Latin with sans-serif as fallback 
 * Wave - used to evaluate application accessibility
 
 See all the results in [tsting](TESTING.md)
+
+## Testing
+Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
+
+## Back-end
+
+Please see [API README.md](https://github.com/LindaAPersson/playdate_drf_api/blob/main/README.md) for a full overview of the back-end connected to playdate. 
+
+Please see [API README.md](https://github.com/LindaAPersson/playdate_drf_api/blob/main/TESTING.md) for a full overview of the back-end testing connected to playdate. 
