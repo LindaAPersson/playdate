@@ -55,6 +55,7 @@ The color scheme for this application was inspired by childhood. I wanted a lot 
 
 #### Wireframes
 While planning this site, I sat down with pen and paper and sketched out the outlines of how I wanted the site to be. Since then, the structure and the number of pages have changed. However, the essence of what I drew is still there.
+![Wireframes](documentation/readme/wireframe.png)
 
 #### Fonts
 Google Fonts were implemented on the website. Latin with sans-serif as fallback was used thoughout the site to ensure high legibility of the content.

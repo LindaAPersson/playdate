@@ -415,7 +415,7 @@ While reviewing our code in WAVE, we encountered an interesting bug related to t
 
 ## Bugs
 ### Resolved bugs
-
+* I encountered a bug while attempting to filter playdates by dates in my application. Despite my efforts, I couldn't get the filtering to work as expected. After struggling for some time, I reached out to Tutorsupport for assistance. They identified the issue: I had missed adding the '&' sign in my filter query. This small oversight was causing the filter to malfunction. With their guidance, I rectified the issue and successfully implemented the date filtering functionality in my application.
 
 
 ### Unresolved bugs
