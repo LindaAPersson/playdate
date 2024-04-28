@@ -1,7 +1,7 @@
 # Playdate
 
 
-This file only contains the exstensive testing done to the webpage. All other information regarding the site will be found in [README](README.md).
+This file only contains the exstensive testing done to the webpage. All other information regarding the site will be found here: [README](README.md).
 
 
 ## Responsvie Testing 
@@ -348,7 +348,7 @@ Desktop
 ![Signup](documentation/testing/wave/signUp.png)
 </details>
 
-While reviewing our code in WAVE, we encountered an interesting bug related to the rendering of forms. Initially, when the form was directly included inside the render function, WAVE returned a clean report with no accessibility errors. However, when we refactored the code to define the form within a constant and then called that constant inside the render function, WAVE detected a plethora of accessibility errors.
+While reviewing my code in WAVE, I encountered an interesting bug related to the rendering of forms. Initially, when the form was directly included inside the render function, WAVE returned a clean report with no accessibility errors. However, when I refactored the code to define the form within a constant and then called that constant inside the render function, WAVE detected a plethora of accessibility errors.
 
 ## Feature Testing
 
@@ -423,5 +423,7 @@ While reviewing our code in WAVE, we encountered an interesting bug related to t
 ![Bug](documentation/testing/lighthouse/cookies.png)
 
 * I encountered a bug related to the spinner component on the website. Despite implementing the spinner functionality, it failed to display correctly when adding a date in the date filter, causing confusion and frustration among users. Unfortunately, I don't have the time to investigate that issue further.
+
+* I discovered a bug where users were unable to change the image of a playdate back to the default option if they had initially selected their own image. Upon editing the playdate, I found that I could not revert to the default image setting.
 
 * While it's not technically a bug in the code, I'm encountering issues with the loading time of images, which is negatively impacting the performance of the site, as indicated by Lighthouse reports. Unfortunately, I don't have the time to learn how to fix the issue. However, further investigation and optimization strategies are needed to improve image loading performance and overall site performance metrics.
