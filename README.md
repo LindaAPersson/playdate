@@ -229,9 +229,10 @@ There is a custom 'page not found' message displaying when the user enters an in
 See all the results in [TESTING.md](TESTING.md)
 
 ## Testing
-Please see  [TESTING.md](TESTING.md) for all the detailed testing performed.
+Please see [TESTING.md](TESTING.md) for all the detailed testing performed.
 
 ## Back-end
+Please see live site [DRF_API](https://playdate-drf-api-a577c80fbeb8.herokuapp.com/)
 
 Please see [API README.md](https://github.com/LindaAPersson/playdate_drf_api/blob/main/README.md) for a full overview of the back-end connected to playdate. 
 
